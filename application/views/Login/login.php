@@ -15,6 +15,7 @@
 <link href="<?= base_url('asset/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href="./asset/style.css">
 <style>
     .jumbotron{
         height: 500px;
@@ -27,15 +28,6 @@
         margin-right: -12px;
         border-radius: 0%;
     }
-    .btn{
-        background-color: #833761;
-        border-color: #833761;
-    }
-    .btn:hover{
-        background-color: #833761;
-        border-color: #833761;
-    }
-
 </style>
 <title>Chika Medika</title>
 </head>
@@ -45,9 +37,13 @@
   <div class="container-fluid">
     <!-- Jumbotron -->
     <div class="jumbotron">
-        <h1 class="display-6">Chika Medika</h1>
-        <p class="text-center fs-3 mt-5">Selamat Datang di Sistem Pendataan Pasien</p>
-        <h3 class="text-center fs-1">Chika Medika</h3>
+        <div class="logo-besar">
+            <p class="display-6"><img class="img-fluid" src="./asset/icons/tooth (1).png" alt="gigi"> Chika Medika</p>
+        </div>
+        <div class="greeting">
+            <p class="text-center fs-3 mt-5">Selamat Datang di Sistem Pendataan Pasien</p>
+            <h3 class="text-center fs-1">Chika Medika</h3>
+        </div>        
     </div>
     <!-- Akhir Jumbotron -->
 

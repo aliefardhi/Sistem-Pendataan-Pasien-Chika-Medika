@@ -1,0 +1,24 @@
+.btn{
+    background-color: #833761;
+    border-color: #833761;
+}
+.btn:hover{
+    background-color: #833761;
+    border-color: #833761;
+}
+
+.img-fluid{
+    width:40px;
+    height:40px; 
+    display:inline;
+    filter: invert(100%);
+    margin-top: -5px;
+}
+.display-6{
+    font-size: 25px;
+}
+.greeting{
+    margin-top: 120px;
+}
+
+
