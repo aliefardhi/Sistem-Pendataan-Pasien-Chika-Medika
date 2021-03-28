@@ -24,10 +24,10 @@
                     <div class="row">
                         <div class="col-lg">
                             <div class="p-5">
-                                <form class="user">
+                                <form class="user" action="<?php echo base_url('landing/aksi_login');?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                            id="email" name="email" placeholder="Username">
+                                            id="email" name="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
