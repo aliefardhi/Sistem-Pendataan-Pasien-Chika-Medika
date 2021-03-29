@@ -16,11 +16,9 @@
     </div>
   </nav>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-      
-        <table>
+  <div class="container mt-3">
+    <h2 class="text-sm-center mb-5 fw-bold">DATA PASIEN CHIKA MEDIKA</h2>
+        <table class="display table table-striped table-borderless" id="tabeluser">
           <thead>
             <tr>
               <th>ID</th>
@@ -52,10 +50,8 @@
           </tbody>
 
         </table>
-
-      </div>
-    </div>
   </div>
     
-  </body>
-</html>
+
+  
+  
