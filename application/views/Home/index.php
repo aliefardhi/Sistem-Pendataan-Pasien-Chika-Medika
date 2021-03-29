@@ -15,6 +15,47 @@
       </a>
     </div>
   </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+      
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Umur</th>
+              <th>Tanggal</th>
+              <th>Riwayat</th>
+              <th>Keluhan</th>
+              <th>Resep</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <?php 
+              foreach($user as $u){
+                echo "<tr>";
+                echo "<td>$u->id_pasien</td>";
+                echo "<td>$u->nama_pasien</td>";
+                echo "<td>$u->umur</td>";
+                echo "<td>$u->tanggal</td>";
+                echo "<td>$u->riwayat</td>";
+                echo "<td>$u->keluhan</td>";
+                echo "<td>$u->resep</td>";
+                echo "</tr>";
+              }
+            
+            ?>
+
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
     
   </body>
 </html>
