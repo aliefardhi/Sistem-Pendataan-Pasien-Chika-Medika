@@ -13,6 +13,9 @@
         <img class="invert" src="./asset/icons/tooth (1).png" alt="logo" width="30" height="30" class="d-inline-block align-text-top">
         Chika Medika
       </a>
+			<a class="navbar-brand" href="#">
+        <img src="./asset/icons/settings (1).png" alt="logo" width="30" height="30" class="d-inline-block align-text-top">
+      </a>
     </div>
   </nav>
 
