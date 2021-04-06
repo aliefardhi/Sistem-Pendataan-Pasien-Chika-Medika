@@ -10,11 +10,11 @@
   <nav class="navbar navbar-dark bg-dark" style="background-image: url('./asset/bg.png');">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img class="invert" src="./asset/icons/tooth (1).png" alt="logo" width="30" height="30" class="d-inline-block align-text-top">
-        Chika Medika
+        <img class="invert" src="./asset/icons/tooth (1).png" alt="logo" width="66" height="66" class="d-inline-block align-text-top">
+        <h3 class="d-inline-block align-text-top"> Chika Medika </h3>
       </a>
 			<a class="navbar-brand" href="#">
-        <img src="./asset/icons/settings (1).png" alt="logo" width="30" height="30" class="d-inline-block align-text-top">
+        <img src="./asset/icons/settings (1).png" alt="logo" width="56" height="56" class="d-inline-block align-text-top">
       </a>
     </div>
   </nav>
