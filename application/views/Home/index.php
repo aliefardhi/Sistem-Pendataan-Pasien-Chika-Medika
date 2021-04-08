@@ -21,6 +21,9 @@
 
   <div class="container mt-3">
     <h2 class="text-sm-center mb-5 fw-bold">DATA PASIEN CHIKA MEDIKA</h2>
+
+    <a href="" class="btn btn-primary float-right mb-3">Tambah Data Pasien</a>
+      
         <table class="display table table-striped table-borderless" id="tabeluser">
           <thead>
             <tr>
