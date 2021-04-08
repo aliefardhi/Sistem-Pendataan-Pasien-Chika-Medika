@@ -14,7 +14,7 @@
         <h3 class="d-inline-block align-text-top"> Chika Medika </h3>
       </a>
 			<a class="navbar-brand" href="<?php echo base_url('landing/logout');?>">
-        <img src="./asset/icons/settings (1).png" alt="logo" width="56" height="56" class="d-inline-block align-text-top">
+        <img src="./asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
       </a>
     </div>
   </nav>
