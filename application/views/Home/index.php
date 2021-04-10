@@ -71,7 +71,11 @@
       </div>
       <div class="modal-body">
         
-        <form action="" method="POST">
+        <form action="<?php echo base_url(). 'home/tambah_aksi'; ?>" method="POST">
+        <div class="form-group">
+            <label for="id_pasien"> <strong>ID Pasien</strong></label>
+            <input type="text" class="form-control" id="id_pasien" name="id_pasien">
+          </div>
           <div class="form-group">
             <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
             <input type="text" class="form-control" id="nama" name="nama">
@@ -133,7 +137,7 @@
 
           <div class="form-group">
             <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-            <input type="text" class="form-control" id="nama" name="nama">
+            <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa">
           </div>
 
           <div class="form-group">

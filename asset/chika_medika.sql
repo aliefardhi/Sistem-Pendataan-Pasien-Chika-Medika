@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 11:35 AM
+-- Generation Time: Apr 10, 2021 at 12:54 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -42,6 +42,7 @@ CREATE TABLE `konsultasi` (
 --
 
 INSERT INTO `konsultasi` (`id_konsultasi`, `tanggal`, `anamnese`, `nomenklatur`, `resep`, `keterangan`, `id_pasien`) VALUES
+('', '0000-00-00', '', '', '', '', NULL),
 ('K-001', '2021-03-27', 'Nyeri gigi dibagian gusi', '2', 'Jangan makan permen mulu', 'nyeri bngt', 1),
 ('K-002', '2021-03-09', 'sakit hati', '1', 'jomblo aja', 'gusi berdarah', 2),
 ('K-003', '2021-03-09', 'Gigi berlubang', '4', 'Tambal gigi', 'gigi bengkak', 3),
@@ -52,7 +53,8 @@ INSERT INTO `konsultasi` (`id_konsultasi`, `tanggal`, `anamnese`, `nomenklatur`,
 ('K-008', '2021-03-15', 'sakit gigi', '3', 'kompress', 'bingung', 8),
 ('K-009', '2021-03-30', 'Gusi bengkak', '1', 'Obat', 'data dummy doang kok', 9),
 ('K-010', '2021-03-14', 'Bau mulut', '6', 'Makan permen', 'gapapa kan ?', 10),
-('K-011', '2021-03-01', 'Gusi bengkak', '7', 'Obat kompres', 'asal asalan gini ?', 11);
+('K-011', '2021-03-01', 'Gusi bengkak', '7', 'Obat kompres', 'asal asalan gini ?', 11),
+('K-012', '2021-04-10', 'Gigi berlubang', '3', 'tambal gigi', 'tambal gigi', 12);
 
 -- --------------------------------------------------------
 
@@ -84,7 +86,8 @@ INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tgl_lahir`, `jk`, `alamat`, `
 (8, 'Puteri', '2021-04-26', 'P', 'jakarta', '8927834624'),
 (9, 'Dewi', '2021-04-27', 'P', 'bogor', '892374623'),
 (10, 'Arya', '2021-04-06', 'L', 'bekasi', '8781264723'),
-(11, 'Daulat', '2021-04-05', 'L', 'jawa', '0823748234');
+(11, 'Daulat', '2021-04-05', 'L', 'jawa', '0823748234'),
+(12, 'Satrio Kunto Birowo', '2021-04-05', 'L', 'Sukarame', '09289074892375');
 
 -- --------------------------------------------------------
 
@@ -113,7 +116,8 @@ INSERT INTO `riwayat_pasien` (`id_diagnosa`, `diagnosa`, `id_pasien`) VALUES
 ('R-008', 'Ga punya gigi', 8),
 ('R-009', 'Gusi bengkak', 9),
 ('R-010', 'Gapnya gigi', 10),
-('R-011', 'Gusi bengkak', 11);
+('R-011', 'Gusi bengkak', 11),
+('R-012', 'gigi berlubang', 12);
 
 -- --------------------------------------------------------
 
@@ -174,7 +178,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
