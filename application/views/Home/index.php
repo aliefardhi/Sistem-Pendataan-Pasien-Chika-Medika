@@ -78,38 +78,67 @@
           </div>
 
           <div class="form-group">
-            <label for="umur"><strong>Umur</strong></label>
-            <input type="number" class="form-control" id="umur" name="umur">
+            <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
+            <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
           </div>
 
           <div class="form-group">
-            <label for="tgl_konsul"><strong>Tanggal konsultasi pasien</strong></label>
-            <input type="date" class="form-control" id="tgl_konsul" name="tgl_konsul">
+            <label for="jk"><strong>Jenis Kelamin</strong></label>
+              <select class="form-control" id="jk" name="jk">
+              <option>Pilih Jenis Kelamin</option>
+              <option>L</option>
+              <option>P</option>
+            </select>
           </div>
 
           <div class="form-group">
-            <label for="riwayat"><strong>Riwayat penyakit pasien</strong></label>
-            <textarea class="form-control" id="riwayat" name="riwayat" rows="3"></textarea>
+            <label for="alamat"><strong>Alamat</strong></label>
+            <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="riwayat"><strong>Riwayat penyakit pasien</strong></label>
-            <textarea class="form-control" id="riwayat" name="riwayat" rows="3"></textarea>
+            <label for="no_telp"> <strong>Nomor Telephone</strong></label>
+            <input type="number" class="form-control" id="no_telp" name="no_telp">
           </div>
 
           <div class="form-group">
-            <label for="keluhan"><strong>Keluhan pasien</strong></label>
-            <textarea class="form-control" id="keluhan" name="keluhan" rows="3"></textarea>
+            <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
+            <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi">
           </div>
 
           <div class="form-group">
-            <label for="resep"><strong>Resep/saran obat</strong></label>
+            <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
+            <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi">
+          </div>
+
+          <div class="form-group">
+            <label for="anamnese"><strong>Anamnese</strong></label>
+            <textarea class="form-control" id="anamnese" name="anamnese" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="nomenklatur"><strong>Nomenklatur</strong></label>
+            <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="resep"><strong>Resep</strong></label>
             <textarea class="form-control" id="resep" name="resep" rows="3"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="keterangan"><strong>Keterangan tambahan</strong></label>
+            <label for="keterangan"><strong>Keterangan</strong></label>
             <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
+            <input type="text" class="form-control" id="nama" name="nama">
+          </div>
+
+          <div class="form-group">
+            <label for="diagnosa"><strong>Diagnosa</strong></label>
+            <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"></textarea>
           </div>
 
       </div>
