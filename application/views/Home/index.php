@@ -32,11 +32,10 @@
             <tr>
               <th>ID</th>
               <th>Nama</th>
-              <th>Umur</th>
-              <th>Tanggal</th>
-              <th>Riwayat</th>
-              <th>Keluhan</th>
-              <th>Resep</th>
+              <th>Tanggal Lahir</th>
+              <th>Alamat</th>
+              <th>No. Telepon</th>
+              <th>Tanggal Kunjungan</th>
             </tr>
           </thead>
 
@@ -46,11 +45,10 @@
                 echo "<tr>";
                 echo "<td>$u->id_pasien</td>";
                 echo "<td>$u->nama_pasien</td>";
-                echo "<td>$u->umur</td>";
+                echo "<td>$u->tgl_lahir</td>";
+                echo "<td>$u->alamat</td>";
+                echo "<td>$u->no_telp</td>";
                 echo "<td>$u->tanggal</td>";
-                echo "<td>$u->riwayat</td>";
-                echo "<td>$u->keluhan</td>";
-                echo "<td>$u->resep</td>";
                 echo "</tr>";
               }
             
