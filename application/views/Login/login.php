@@ -4,7 +4,7 @@
     <!-- Jumbotron -->
     <div class="jumbotron" style="background-image: url('./asset/bg.png');">
         <div class="logo-besar">
-			<p class="display-6"><img class="img-fluid" src="./asset/icons/tooth (1).png" alt="gigi" width="66" height="66"> Chika Medika</p>
+			<img src="./asset/icons/logo.png" alt="gigi" width="125" height="125">
         </div>
         <div class="greeting">
             <p class="text-center fs-3 mt-5">Selamat Datang di Sistem Pendataan Pasien</p>
