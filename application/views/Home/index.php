@@ -10,8 +10,7 @@
   <nav class="navbar navbar-dark bg-dark" style="background-image: url('./asset/bg.png');">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img class="invert" src="./asset/icons/tooth (1).png" alt="logo" width="66" height="66" class="d-inline-block align-text-top">
-        <h3 class="d-inline-block align-text-top"> Chika Medika </h3>
+        <img src="./asset/icons/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
       </a>
 			<a class="navbar-brand" href="<?php echo base_url('landing/logout');?>" onclick="return confirm('Anda yakin ingin logout?');" >
         <img src="./asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
