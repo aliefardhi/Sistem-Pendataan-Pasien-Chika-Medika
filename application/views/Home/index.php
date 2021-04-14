@@ -22,7 +22,7 @@
     <h2 class="text-sm-center mb-5 fw-bold">DATA PASIEN CHIKA MEDIKA</h2>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-3 float-right" data-toggle="modal" data-target="#tambah_modal">
+    <button type="button" class="btn btn-ungu btn-primary mb-3 float-right" data-toggle="modal" data-target="#tambah_modal">
       Tambah Data Pasien
     </button>
       
@@ -35,30 +35,44 @@
               <th>Alamat</th>
               <th>No. Telepon</th>
               <th>Tanggal Kunjungan</th>
+              <th>Aksi</th>
             </tr>
           </thead>
 
           <tbody>
             <?php 
-              foreach($user as $u){
-                echo "<tr>";
-                echo "<td>$u->id_pasien</td>";
-                echo "<td>$u->nama_pasien</td>";
-                echo "<td>$u->tgl_lahir</td>";
-                echo "<td>$u->alamat</td>";
-                echo "<td>$u->no_telp</td>";
-                echo "<td>$u->tanggal</td>";
-                echo "</tr>";
-              }
-            
-            ?>
-
+              foreach($user as $u){ ?>
+              <tr>
+                <td><?=$u->id_pasien?></td>
+                <td><?=$u->nama_pasien?></td>
+                <td><?=$u->tgl_lahir?></td>
+                <td><?=$u->alamat?></td>
+                <td><?=$u->no_telp?></td>
+                <td><?=$u->tanggal?></td>
+                <td class="text-center">
+                  <form action="" method="post">
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail_modal">
+                      <i class="fa fa-info"></i> Detail
+                    </button>
+                    
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ubah_modal">
+                      <i class="fa fa-pencil-alt" aria-hidden="true"></i> Ubah
+                    </button>
+                    
+                    <input type="hidden" name="" value="<?=$u->id_pasien?>">
+                    <button onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i> Delete
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <?php } ?>
           </tbody>
 
         </table>
   </div>
     
-<!-- Modal -->
+<!-- Modal Tambah Pasien -->
 <div class="modal fade" id="tambah_modal" tabindex="-1" aria-labelledby="judulmodal_tambah" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -154,5 +168,65 @@
     </div>
   </div>
 </div>
-  
+<!-- Akhir Modal Tambah Pasien -->
+
+<!-- Modal Detail -->
+<div class="modal fade" id="detail_modal" tabindex="-1" aria-labelledby="judulmodal_detail" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="judulmodal_detail">Detail Pasien</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Visit ke-</th>
+              <td>
+                <form action="" method="POST">
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1"></label>
+                    <select class="form-control-sm" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
+                  </div>
+                </form>
+                
+              </td>
+            </tr>
+            <tr>
+              <th>Nama</th>
+              <td>nama orang</td>
+            </tr>
+            <tr>
+              <th>Tanggal Lahir</th>
+            </tr>
+            <tr>
+              <th>Alamat</th>
+            </tr>
+            <tr>
+              <th>No. Telepon</th>
+            </tr>
+            <tr>
+              <th>Tanggal kunjungan</th>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Akhir Modal Detail -->
   
