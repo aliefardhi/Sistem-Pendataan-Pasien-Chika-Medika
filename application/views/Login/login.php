@@ -3,9 +3,7 @@
   <div class="container-fluid">
     <!-- Jumbotron -->
     <div class="jumbotron" style="background-image: url('./asset/bg.png');">
-        <div class="logo-besar">
-			<img src="./asset/icons/logo.png" alt="gigi" width="125" height="125">
-        </div>
+			<img src="./asset/logo.png" alt="gigi" width="125" height="125">
         <div class="greeting">
             <p class="text-center fs-3 mt-5">Selamat Datang di Sistem Pendataan Pasien</p>
             <h3 class="text-center fs-1">Chika Medika</h3>

@@ -17,6 +17,7 @@
   });
   </script>
 
+<script src="<?= base_url('asset/'); ?>script.js"></script>
 </body>
 
 </html>
