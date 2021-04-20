@@ -51,7 +51,7 @@
                 <td><?=$ps->tanggal?></td>
                 <td class="text-center">
                   <form action="" method="post">
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail_modal <?php echo $ps['id_pasien'];?>">
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail_modal">
                       <i class="fa fa-info"></i> Detail
                     </button>
                   
@@ -59,7 +59,7 @@
                       <i class="fa fa-pencil-alt" aria-hidden="true"></i> Edit
                     </button>
                     
-                    <input type="hidden" name="" value="<?=$ps->id_pasien?>">
+                    <input type="hidden" name="<?php echo base_url('home/hapus'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
                     <button onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
                       <i class="fa fa-trash"></i> Delete
                     </button>

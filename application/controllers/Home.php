@@ -74,4 +74,11 @@ class Home extends CI_Controller{
         redirect(base_url('home'));
     }
 
+    function hapus($id){
+        $where = array('id' => $id);
+        $this->m_login->hapus_data($where,'konsultasi');
+        $this->m_login->hapus_data($where,'riwayat_pasien');
+        $this->m_login->hapus_data($where,'pasien');
+        redirect('home');
+    }
 }
