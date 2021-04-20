@@ -139,16 +139,6 @@
           </div>
 
           <div class="form-group">
-            <label for="resep"><strong>Resep</strong></label>
-            <textarea class="form-control" id="resep" name="resep" rows="3"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="keterangan"><strong>Keterangan</strong></label>
-            <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
-          </div>
-
-          <div class="form-group">
             <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
             <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa">
           </div>
@@ -156,6 +146,21 @@
           <div class="form-group">
             <label for="diagnosa"><strong>Diagnosa</strong></label>
             <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="tindakan"><strong>Tindakan</strong></label>
+            <textarea class="form-control" id="tindakan" name="tindakan" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="resep"><strong>Resep</strong></label>
+            <textarea class="form-control" id="resep" name="resep" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="keterangan"><strong>Keterangan</strong></label>
+            <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
           </div>
 
       </div>

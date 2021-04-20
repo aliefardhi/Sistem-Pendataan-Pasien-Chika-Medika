@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 12:54 PM
+-- Generation Time: Apr 20, 2021 at 04:09 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -32,8 +32,10 @@ CREATE TABLE `konsultasi` (
   `tanggal` date DEFAULT NULL,
   `anamnese` varchar(100) DEFAULT NULL,
   `nomenklatur` varchar(10) DEFAULT NULL,
+  `tindakan` varchar(100) DEFAULT NULL,
   `resep` varchar(100) DEFAULT NULL,
   `keterangan` varchar(100) DEFAULT NULL,
+  `visit` int(100) DEFAULT NULL,
   `id_pasien` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,20 +43,20 @@ CREATE TABLE `konsultasi` (
 -- Dumping data for table `konsultasi`
 --
 
-INSERT INTO `konsultasi` (`id_konsultasi`, `tanggal`, `anamnese`, `nomenklatur`, `resep`, `keterangan`, `id_pasien`) VALUES
-('', '0000-00-00', '', '', '', '', NULL),
-('K-001', '2021-03-27', 'Nyeri gigi dibagian gusi', '2', 'Jangan makan permen mulu', 'nyeri bngt', 1),
-('K-002', '2021-03-09', 'sakit hati', '1', 'jomblo aja', 'gusi berdarah', 2),
-('K-003', '2021-03-09', 'Gigi berlubang', '4', 'Tambal gigi', 'gigi bengkak', 3),
-('K-004', '2021-03-15', 'Gusi bengkak', '5', 'Kompres', 'gusi bengkak', 4),
-('K-005', '2021-03-08', 'Ga punya gigi', '8', 'Pasang gigi palsu', 'gigi lobang', 5),
-('K-006', '2021-03-31', 'Gusi berdarah', '1', 'Obat', 'ga punya gigi', 6),
-('K-007', '2021-03-07', 'Gigi ompong', '4', 'Pasang gigi palsu', 'gatau lg bingung', 7),
-('K-008', '2021-03-15', 'sakit gigi', '3', 'kompress', 'bingung', 8),
-('K-009', '2021-03-30', 'Gusi bengkak', '1', 'Obat', 'data dummy doang kok', 9),
-('K-010', '2021-03-14', 'Bau mulut', '6', 'Makan permen', 'gapapa kan ?', 10),
-('K-011', '2021-03-01', 'Gusi bengkak', '7', 'Obat kompres', 'asal asalan gini ?', 11),
-('K-012', '2021-04-10', 'Gigi berlubang', '3', 'tambal gigi', 'tambal gigi', 12);
+INSERT INTO `konsultasi` (`id_konsultasi`, `tanggal`, `anamnese`, `nomenklatur`, `tindakan`, `resep`, `keterangan`, `visit`, `id_pasien`) VALUES
+('K-001', '2021-03-27', 'Nyeri gigi dibagian gusi', '2', 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 1, 1),
+('K-002', '2021-03-09', 'sakit hati', '1', 'cari pacar', 'jomblo aja', 'gusi berdarah', 1, 2),
+('K-003', '2021-03-09', 'Gigi berlubang', '4', 'tambal gigi', 'Tambal gigi', 'gigi bengkak', 1, 3),
+('K-004', '2021-03-15', 'Gusi bengkak', '5', 'kompres', 'antibiotik', 'gusi bengkak', 1, 4),
+('K-005', '2021-03-08', 'Ga punya gigi', '8', 'pasang gigi palsu', 'Pasang gigi palsu', 'gigi lobang', 1, 5),
+('K-006', '2021-03-31', 'Gusi berdarah', '1', 'antibiotik', 'Obat', 'ga punya gigi', 1, 6),
+('K-007', '2021-03-07', 'Gigi ompong', '4', 'pasang gigi palsu', 'Pasang gigi palsu', 'gatau lg bingung', 1, 7),
+('K-008', '2021-03-15', 'sakit gigi', '3', 'minum obat', 'kompress', 'bingung', 1, 8),
+('K-009', '2021-03-30', 'Gusi bengkak', '1', 'kompres', 'Obat', 'data dummy doang kok', 1, 9),
+('K-010', '2021-03-14', 'Bau mulut', '6', 'obat', 'Makan permen', 'gapapa kan ?', 1, 10),
+('K-011', '2021-03-01', 'Gusi bengkak', '7', 'kompres', 'Obat kompres', 'asal asalan gini ?', 1, 11),
+('K-012', '2021-04-10', 'Gigi berlubang', '3', 'tambal gigi', 'tambal gigi', 'tambal gigi', 1, 12),
+('K-013', '2021-04-20', 'sakit gigi', '3', 'tambal gigi', 'antibiotik', 'kembali minggu depan', 1, 13);
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,8 @@ INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tgl_lahir`, `jk`, `alamat`, `
 (9, 'Dewi', '2021-04-27', 'P', 'bogor', '892374623'),
 (10, 'Arya', '2021-04-06', 'L', 'bekasi', '8781264723'),
 (11, 'Daulat', '2021-04-05', 'L', 'jawa', '0823748234'),
-(12, 'Satrio Kunto Birowo', '2021-04-05', 'L', 'Sukarame', '09289074892375');
+(12, 'Satrio Kunto Birowo', '2021-04-05', 'L', 'Sukarame', '09289074892375'),
+(13, 'Juni junaedi', '2013-01-22', 'P', 'Kedaton', '09829748423');
 
 -- --------------------------------------------------------
 
@@ -117,7 +120,8 @@ INSERT INTO `riwayat_pasien` (`id_diagnosa`, `diagnosa`, `id_pasien`) VALUES
 ('R-009', 'Gusi bengkak', 9),
 ('R-010', 'Gapnya gigi', 10),
 ('R-011', 'Gusi bengkak', 11),
-('R-012', 'gigi berlubang', 12);
+('R-012', 'gigi berlubang', 12),
+('R-013', 'Gigi berlubang', 13);
 
 -- --------------------------------------------------------
 

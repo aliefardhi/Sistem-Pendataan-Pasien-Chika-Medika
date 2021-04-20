@@ -42,6 +42,7 @@ class Home extends CI_Controller{
         $keterangan = $this->input->post('keterangan');
         $id_diagnosa = $this->input->post('id_diagnosa');
         $diagnosa = $this->input->post('diagnosa');
+        $tindakan = $this->input->post('tindakan');
 
         $dataPasien = array(
             'id_pasien' => $id_pasien,
@@ -56,8 +57,10 @@ class Home extends CI_Controller{
             'tanggal' => $tgl_konsultasi,
             'anamnese' => $anamnese,
             'nomenklatur' => $nomenklatur,
+            'tindakan' => $tindakan,
             'resep' => $resep,
             'keterangan' => $keterangan,
+            'visit' => 1,
             'id_pasien' => $id_pasien,
         );
         $dataDiagnosa = array(
@@ -66,8 +69,6 @@ class Home extends CI_Controller{
             'id_pasien' => $id_pasien,
         );
         $this->m_login->input_data($dataPasien,'pasien');
-        //$this->m_login->input_dataKonsultasi($dataKonsultasi,'konsultasi');
-        //$this->m_login->input_dataDiagnosa($dataDiagnosa,'riwayat_pasien');
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
         $this->m_login->input_data($dataDiagnosa,'riwayat_pasien');
         redirect(base_url('home'));
