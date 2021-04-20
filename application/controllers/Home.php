@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller{
     
     public function index(){
-        $data['user'] = $this->m_login->tampil_data();
+        $data['pasien'] = $this->m_login->tampil_data();
         $this->load->view('templates/header');
         $this->load->view('home/index', $data);
         $this->load->view('templates/footer');
@@ -73,4 +73,5 @@ class Home extends CI_Controller{
         $this->m_login->input_data($dataDiagnosa,'riwayat_pasien');
         redirect(base_url('home'));
     }
+
 }

@@ -41,25 +41,25 @@
 
           <tbody>
             <?php 
-              foreach($user as $u){ ?>
+              foreach($pasien as $ps){ ?>
               <tr>
-                <td><?=$u->id_pasien?></td>
-                <td><?=$u->nama_pasien?></td>
-                <td><?=$u->tgl_lahir?></td>
-                <td><?=$u->alamat?></td>
-                <td><?=$u->no_telp?></td>
-                <td><?=$u->tanggal?></td>
+                <td><?=$ps->id_pasien?></td>
+                <td><?=$ps->nama_pasien?></td>
+                <td><?=$ps->tgl_lahir?></td>
+                <td><?=$ps->alamat?></td>
+                <td><?=$ps->no_telp?></td>
+                <td><?=$ps->tanggal?></td>
                 <td class="text-center">
                   <form action="" method="post">
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail_modal">
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail_modal <?php echo $ps['id_pasien'];?>">
                       <i class="fa fa-info"></i> Detail
                     </button>
-                    
+                  
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_modal">
                       <i class="fa fa-pencil-alt" aria-hidden="true"></i> Edit
                     </button>
                     
-                    <input type="hidden" name="" value="<?=$u->id_pasien?>">
+                    <input type="hidden" name="" value="<?=$ps->id_pasien?>">
                     <button onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
                       <i class="fa fa-trash"></i> Delete
                     </button>
@@ -206,7 +206,7 @@
             </tr>
             <tr>
               <th>ID Pasien</th>
-              <td>1</td>
+              <td><?php $ps->id_pasien ?></td>
             </tr>
             <tr>
               <th>Nama</th>
