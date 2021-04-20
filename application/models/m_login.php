@@ -19,4 +19,15 @@ class M_login extends CI_Model{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	public function getPasienId($id_pasien){
+		return $this->db->get_where('pasien', ['id_pasien'=>$id_pasien])->row_array();
+	}
+
+	public function getKonsul($id_pasien){
+		return $this->db->get_where('konsultasi', ['id_pasien'=>$id_pasien])->row_array();
+	}
+	public function getRiwayat($id_pasien){
+		return $this->db->get_where('riwayat_pasien', ['id_pasien'=>$id_pasien])->row_array();
+	}
 }

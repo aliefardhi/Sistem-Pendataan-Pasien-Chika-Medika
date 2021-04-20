@@ -81,4 +81,14 @@ class Home extends CI_Controller{
         $this->m_login->hapus_data($where,'pasien');
         redirect('home');
     }
+
+    public function detail($id_pasien){
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+
+        $this->load->view('templates/header');
+        $this->load->view('home/detail', $data);
+        $this->load->view('templates/footer');
+    }
 }
