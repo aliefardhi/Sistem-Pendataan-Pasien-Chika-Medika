@@ -80,6 +80,7 @@ class Home extends CI_Controller{
         $this->m_login->hapus_data($where,'konsultasi');
         $this->m_login->hapus_data($where,'riwayat_pasien');
         $this->m_login->hapus_data($where,'pasien');
+        $this->session->set_flashdata('flash','Dihapus');
         redirect('home');
     }
 
