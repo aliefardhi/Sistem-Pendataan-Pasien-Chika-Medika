@@ -6,7 +6,7 @@
         </div>
         </div>        
     </div> -->
-
+  
   <nav class="navbar navbar-dark bg-dark" style="background-image: url('./asset/bg.png');">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -59,8 +59,8 @@
                   </a>
                   
                   <input type="hidden" name="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
-                  <a href="<?php echo base_url('home/hapus'.$ps->id_pasien); ?>" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash"></i> Delete
+                  <a href="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
+                    Delete
                   </a>
                   
                 </td>
@@ -119,7 +119,7 @@
 
           <div class="form-group">
             <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
-            <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi">
+            <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="K-">
           </div>
 
           <div class="form-group">
@@ -139,7 +139,7 @@
 
           <div class="form-group">
             <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-            <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa">
+            <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="R-">
           </div>
 
           <div class="form-group">

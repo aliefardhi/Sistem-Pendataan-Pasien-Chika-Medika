@@ -74,8 +74,8 @@ class Home extends CI_Controller{
         redirect(base_url('home'));
     }
 
-    function hapus($id){
-        $where = array('id' => $id);
+    function hapus($id_pasien){
+        $where = array('id_pasien' => $id_pasien);
         $this->m_login->hapus_data($where,'konsultasi');
         $this->m_login->hapus_data($where,'riwayat_pasien');
         $this->m_login->hapus_data($where,'pasien');
@@ -91,4 +91,6 @@ class Home extends CI_Controller{
         $this->load->view('home/detail', $data);
         $this->load->view('templates/footer');
     }
+
+    
 }
