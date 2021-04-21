@@ -21,6 +21,15 @@
   <div class="container mt-3">
     <h2 class="text-sm-center mb-5 fw-bold">DATA PASIEN CHIKA MEDIKA</h2>
 
+    <?php if($this->session->flashdata('flash')): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Data Pasien <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php endif; ?>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-ungu btn-primary mb-3 float-right" data-toggle="modal" data-target="#tambah_modal">
       Tambah Data Pasien

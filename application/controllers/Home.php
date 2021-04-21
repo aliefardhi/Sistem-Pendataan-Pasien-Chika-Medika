@@ -71,6 +71,7 @@ class Home extends CI_Controller{
         $this->m_login->input_data($dataPasien,'pasien');
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
         $this->m_login->input_data($dataDiagnosa,'riwayat_pasien');
+        $this->session->set_flashdata('flash','Ditambahkan');
         redirect(base_url('home'));
     }
 
