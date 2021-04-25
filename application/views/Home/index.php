@@ -6,7 +6,7 @@
         </div>
         </div>        
     </div> -->
-
+  
   <nav class="navbar navbar-dark bg-dark" style="background-image: url('./asset/bg.png');">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -20,6 +20,15 @@
 
   <div class="container mt-3">
     <h2 class="text-sm-center mb-5 fw-bold">DATA PASIEN CHIKA MEDIKA</h2>
+
+    <?php if($this->session->flashdata('flash')): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Data Pasien <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php endif; ?>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-ungu btn-primary mb-3 float-right" data-toggle="modal" data-target="#tambah_modal">
@@ -50,20 +59,19 @@
                 <td><?=$ps->no_telp?></td>
                 <td><?=$ps->tanggal?></td>
                 <td class="text-center">
-                  <form action="" method="post">
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detail_modal">
-                      <i class="fa fa-info"></i> Detail
-                    </button>
+                  <a href="<?= base_url(); ?>home/detail/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
+                    Detail
+                  </a>
+                
+                  <a href="<?= base_url(); ?>home/ubah" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_modal">
+                     Edit
+                  </a>
                   
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_modal">
-                      <i class="fa fa-pencil-alt" aria-hidden="true"></i> Edit
-                    </button>
-                    
-                    <input type="hidden" name="<?php echo base_url('home/hapus'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
-                    <button onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
-                      <i class="fa fa-trash"></i> Delete
-                    </button>
-                  </form>
+                  <input type="hidden" name="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
+                  <a href="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
+                    Delete
+                  </a>
+                  
                 </td>
               </tr>
               <?php } ?>
@@ -120,7 +128,7 @@
 
           <div class="form-group">
             <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
-            <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi">
+            <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="K-">
           </div>
 
           <div class="form-group">
@@ -140,7 +148,7 @@
 
           <div class="form-group">
             <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-            <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa">
+            <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="R-">
           </div>
 
           <div class="form-group">
@@ -206,15 +214,15 @@
             </tr>
             <tr>
               <th>ID Pasien</th>
-              <td><?php $ps->id_pasien ?></td>
+              <td><?= base_url('home/detail'); ?><?=$ps->$id_pasien;?></td>
             </tr>
             <tr>
               <th>Nama</th>
-              <td>nama orang</td>
+              <td><span id="nama_pasien"></span></td>
             </tr>
             <tr>
               <th>Tanggal Lahir</th>
-              <td>04-07-2000</td>
+              <td><span id="tgl_lahir"></span></td>
             </tr>
             <tr>
               <th>Alamat</th>
@@ -363,3 +371,16 @@
   </div>
 </div>
 <!-- Akhir Modal Ubah Data Pasien -->
+
+<script>
+$(document).ready(function(){
+  $(document).on('click', '#set_dtl', function(){
+    var id_pasien = $(this).data('id_pasien');
+    var nama_pasien = $(this).data('nama_pasien');
+    var tgl_lahir = $(this).data('tgl_lahir');
+    $('#id_pasien').text(id_pasien);
+    $('#nama_pasien').text(nama_pasien);
+    $('#tgl_lahir').text(tgl_lahir);
+  })
+})
+</script>

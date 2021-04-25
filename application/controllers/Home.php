@@ -71,14 +71,28 @@ class Home extends CI_Controller{
         $this->m_login->input_data($dataPasien,'pasien');
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
         $this->m_login->input_data($dataDiagnosa,'riwayat_pasien');
+        $this->session->set_flashdata('flash','Ditambahkan');
         redirect(base_url('home'));
     }
 
-    function hapus($id){
-        $where = array('id' => $id);
+    function hapus($id_pasien){
+        $where = array('id_pasien' => $id_pasien);
         $this->m_login->hapus_data($where,'konsultasi');
         $this->m_login->hapus_data($where,'riwayat_pasien');
         $this->m_login->hapus_data($where,'pasien');
+        $this->session->set_flashdata('flash','Dihapus');
         redirect('home');
     }
+
+    public function detail($id_pasien){
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+
+        $this->load->view('templates/header');
+        $this->load->view('home/detail', $data);
+        $this->load->view('templates/footer');
+    }
+
+    
 }
