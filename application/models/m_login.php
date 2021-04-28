@@ -27,7 +27,12 @@ class M_login extends CI_Model{
 	public function getKonsul($id_pasien){
 		return $this->db->get_where('konsultasi', ['id_pasien'=>$id_pasien])->row_array();
 	}
+
 	public function getRiwayat($id_pasien){
 		return $this->db->get_where('riwayat_pasien', ['id_pasien'=>$id_pasien])->row_array();
+	}
+	
+	public function ubah_data(){
+		
 	}
 }

@@ -36,9 +36,9 @@
     </button>
       
         <table class="display table table-striped table-borderless" id="tabeluser">
-          <thead>
+          <thead class="thead-dark">
             <tr>
-              <th>ID</th>
+              <th>No.</th>
               <th>Nama</th>
               <th>Tanggal Lahir</th>
               <th>Alamat</th>
@@ -62,11 +62,7 @@
                   <a href="<?= base_url(); ?>home/detail/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
                     Detail
                   </a>
-                
-                  <a href="<?= base_url(); ?>home/ubah" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_modal">
-                     Edit
-                  </a>
-                  
+    
                   <input type="hidden" name="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
                   <a href="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
                     Delete

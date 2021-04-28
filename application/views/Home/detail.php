@@ -1,14 +1,20 @@
 <body>
-    <!--<nav class="navbar navbar-dark bg-dark" style="background-image: url(./asset/bg.png);">
+    <nav class="navbar navbar-dark bg-dark" style="background-image: url(./asset/bg.png);">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="./asset/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
+            <img src="/asset/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
         </a>
                 <a class="navbar-brand" href="<?php echo base_url('landing/logout');?>" onclick="return confirm('Anda yakin ingin logout?');" >
-            <img src="./asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
+            <img src="/asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
         </a>
         </div>
-    </nav> --> 
+    </nav> 
+
+  <style>
+    .container {
+      font-size: large;
+    }
+  </style>
 
     <div class="container">   
 
@@ -17,9 +23,12 @@
             
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-center" style="color: #833761 ;"><?= $pasien['nama_pasien']; ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h6>
-                       <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                        <h3 class="card-title text-center" style="color: #833761 ;"><?= $pasien['nama_pasien']; ?></h3>
+                        <h5 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h5>
+                        
+                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
+                          Edit Data Pasien
+                        </a>
 
                         <div class="table-responsive">
                             
