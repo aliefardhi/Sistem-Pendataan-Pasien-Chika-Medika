@@ -21,6 +21,7 @@
   <div class="container mt-3">
     <h2 class="text-sm-center mb-5 fw-bold">DATA PASIEN CHIKA MEDIKA</h2>
 
+    <?= validation_errors(); ?>
     <?php if($this->session->flashdata('flash')): ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       Data Pasien <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
@@ -123,7 +124,7 @@
 
           <div class="form-group">
             <label for="no_telp"> <strong>Nomor Telephone</strong></label>
-            <input type="number" class="form-control" id="no_telp" name="no_telp">
+            <input type="text" class="form-control" id="no_telp" name="no_telp">
           </div>
 
           <div class="form-group">

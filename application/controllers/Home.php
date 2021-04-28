@@ -4,16 +4,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller{
     
     public function index(){
+
         $data['pasien'] = $this->m_login->tampil_data();
         $this->load->view('templates/header');
         $this->load->view('home/index', $data);
         $this->load->view('templates/footer');
+        
     }
 
     function __construct(){
         parent::__construct();
         $this->load->model('m_login');
         $this->load->helper('url');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
 
         if($this->session->userdata('status'!="login")){
             redirect(base_url("login"));
@@ -22,12 +26,12 @@ class Home extends CI_Controller{
         $this->load->helper("url");
         $this->load->model('m_login');
     }
-
-    function tambah(){
-        $this->load->view('home/index');
-    }
     
     function tambah_aksi(){
+        $this->load->helper(array('form', 'url'));
+
+        $this->load->library('form_validation');
+
         $id_pasien = $this->input->post('id_pasien');
         $nama = $this->input->post('nama');
         $tgl_lahir = $this->input->post('tgl_lahir');
@@ -68,11 +72,15 @@ class Home extends CI_Controller{
             'diagnosa' => $diagnosa,
             'id_pasien' => $id_pasien,
         );
+
+        $this->form_validation->set_rules('no_telp','Isi angka','numeric');
+        
         $this->m_login->input_data($dataPasien,'pasien');
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
         $this->m_login->input_data($dataDiagnosa,'riwayat_pasien');
         $this->session->set_flashdata('flash','Ditambahkan');
         redirect(base_url('home'));
+
     }
 
     function hapus($id_pasien){

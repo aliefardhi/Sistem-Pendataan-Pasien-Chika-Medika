@@ -147,7 +147,7 @@
 
               <div class="form-group">
                 <label for="no_telp"> <strong>Nomor Telephone</strong></label>
-                <input type="number" class="form-control" id="no_telp" name="no_telp">
+                <input type="text" class="form-control" id="no_telp" name="no_telp">
               </div>
 
               <div class="form-group">
