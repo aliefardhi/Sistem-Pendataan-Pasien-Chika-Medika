@@ -1,20 +1,15 @@
 <body>
-    <nav class="navbar navbar-dark bg-dark" style="background-image: url(./asset/bg.png);">
+    <nav class="navbar navbar-dark bg-dark" style="background-image: url('/chikamedika/asset/bg.png');">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="/asset/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
-        </a>
-                <a class="navbar-brand" href="<?php echo base_url('landing/logout');?>" onclick="return confirm('Anda yakin ingin logout?');" >
-            <img src="/asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
-        </a>
+            <a class="navbar-brand" href="#">
+                <img src="<?= base_url(); ?>asset/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
+            </a>
+            
+            <a class="navbar-brand" href="<?php echo base_url('landing/logout');?>" onclick="return confirm('Anda yakin ingin logout?');" >
+                <img src="<?= base_url(); ?>asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
+            </a>
         </div>
     </nav> 
-
-  <style>
-    .container {
-      font-size: large;
-    }
-  </style>
 
     <div class="container">   
 
