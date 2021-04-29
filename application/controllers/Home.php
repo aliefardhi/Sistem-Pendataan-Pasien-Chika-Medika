@@ -139,7 +139,7 @@ class Home extends CI_Controller{
             'tindakan' => $tindakanPasien,
             'resep' => $resepPasien,
             'keterangan' => $keteranganPasien
-        );
+        );  
 
         $idDiagnosa = $this->input->post('id_diagnosa');
         $diagnosaPasien = $this->input->post('diagnosa');
