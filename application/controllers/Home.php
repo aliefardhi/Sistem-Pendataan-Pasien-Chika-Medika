@@ -89,6 +89,7 @@ class Home extends CI_Controller{
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
         $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
 
+
         $this->load->view('templates/header');
         $this->load->view('home/detail', $data);
         $this->load->view('templates/footer');
@@ -105,5 +106,57 @@ class Home extends CI_Controller{
         $this->load->view('templates/footer');
     }
 
+    public function aksi_ubah(){
+        $idPasien = $this->input->post('id_pasien');
+        $namaPasien = $this->input->post('nama');
+        $tglLahir = $this->input->post('tgl_lahir');
+        $jenisKelamin = $this->input->post('jk');
+        $alamatPasien = $this->input->post('alamat');
+        $noTelp = $this->input->post('no_telp');
+
+        $dataPasien = array(
+            'id_pasien' => $idPasien,
+            'nama_pasien' => $namaPasien,
+            'tgl_lahir' => $tglLahir,
+            'jk' => $jenisKelamin,
+            'alamat' => $alamatPasien,
+            'no_telp' => $noTelp
+        );
+
+        $idKonsultasi = $this->input->post('id_konsultasi');
+        $tglKonsultasi = $this->input->post('tgl_konsultasi');
+        $anamnesePasien = $this->input->post('anamnese');
+        $nomenklaturPasien = $this->input->post('nomenklatur');
+        $tindakanPasien = $this->input->post('tindakan');
+        $resepPasien = $this->input->post('resep');
+        $keteranganPasien = $this->input->post('keterangan');
+
+        $dataKonsultasi = array(
+            'id_konsultasi' => $idKonsultasi,
+            'tanggal' => $tglKonsultasi,
+            'anamnese' => $anamnesePasien,
+            'nomenklatur' => $nomenklaturPasien,
+            'tindakan' => $tindakanPasien,
+            'resep' => $resepPasien,
+            'keterangan' => $keteranganPasien
+        );
+
+        $idDiagnosa = $this->input->post('id_diagnosa');
+        $diagnosaPasien = $this->input->post('diagnosa');
+
+        $dataDiagnosa = array(
+            'id_diagnosa' => $idDiagnosa,
+            'diagnosa' => $diagnosaPasien
+        );
+        
+        $where = array(
+            'id_pasien' => $idPasien 
+        );
+
+        $this->m_login->ubah_data($where,$dataPasien,'pasien');
+        $this->m_login->ubah_data($where,$dataKonsultasi,'konsultasi');
+        $this->m_login->ubah_data($where,$dataDiagnosa,'riwayat_pasien');
+        redirect('home');
+    }
     
 }

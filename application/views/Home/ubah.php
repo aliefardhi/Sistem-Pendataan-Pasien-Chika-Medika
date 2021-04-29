@@ -23,7 +23,7 @@
                         
                         </div>
 
-                        <form action="<?php echo base_url(). 'home/ubah/'; ?>" method="POST">
+                        <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
                             <div class="form-group">
                                 <label for="id_pasien"> <strong>ID Pasien</strong></label>
                                 <input type="text" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
@@ -53,57 +53,57 @@
 
                             <div class="form-group">
                                 <label for="alamat"><strong>Alamat</strong></label>
-                                <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                                <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $pasien['alamat'] ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="no_telp"> <strong>Nomor Telephone</strong></label>
-                                <input type="number" class="form-control" id="no_telp" name="no_telp">
+                                <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $pasien['no_telp']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
-                                <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="K-">
+                                <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="<?= $konsultasi['id_konsultasi']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
-                                <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi">
+                                <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi" value="<?= $konsultasi['tanggal']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="anamnese"><strong>Anamnese</strong></label>
-                                <textarea class="form-control" id="anamnese" name="anamnese" rows="3"></textarea>
+                                <textarea class="form-control" id="anamnese" name="anamnese" rows="3"><?= $konsultasi['anamnese']; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="nomenklatur"><strong>Nomenklatur</strong></label>
-                                <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"></textarea>
+                                <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"><?= $konsultasi['nomenklatur']; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-                                <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="R-">
+                                <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="<?= $riwayat_pasien['id_diagnosa']; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="diagnosa"><strong>Diagnosa</strong></label>
-                                <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"></textarea>
+                                <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $riwayat_pasien['diagnosa']; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="tindakan"><strong>Tindakan</strong></label>
-                                <textarea class="form-control" id="tindakan" name="tindakan" rows="3"></textarea>
+                                <textarea class="form-control" id="tindakan" name="tindakan" rows="3"><?= $konsultasi['tindakan']; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="resep"><strong>Resep</strong></label>
-                                <textarea class="form-control" id="resep" name="resep" rows="3"></textarea>
+                                <textarea class="form-control" id="resep" name="resep" rows="3"><?= $konsultasi['resep']; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="keterangan"><strong>Keterangan</strong></label>
-                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"><?= $konsultasi['keterangan']; ?></textarea>
                             </div>
 
                             <button onclick="window.history.back();" type="button" class="btn btn-secondary">Kembali</button>

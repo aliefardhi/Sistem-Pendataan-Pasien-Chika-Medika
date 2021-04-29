@@ -32,7 +32,8 @@ class M_login extends CI_Model{
 		return $this->db->get_where('riwayat_pasien', ['id_pasien'=>$id_pasien])->row_array();
 	}
 	
-	public function ubah_data(){
-		
+	public function ubah_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
 	}
 }
