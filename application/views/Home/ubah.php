@@ -14,7 +14,7 @@
     </nav> 
     <!-- Akhir Header -->
 
-    <div class="container">
+    <div class="container mb-3">
         <div class="row mt-3 mx-auto">
             <div class="col-md-7 mx-auto">
                 <div class="card">
@@ -29,17 +29,20 @@
                                 <input type="text" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group col-md-5">
-                                    <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
-                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $pasien['nama_pasien']; ?>">
-                                </div>
+                            <div class="form-group">
+                                <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
+                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $pasien['nama_pasien']; ?>">
+                            </div>
 
-                                <div class="form-group col-md-4">
+                            <div class="form-row">
+                                <div class="form-group col-md-3">
                                     <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
                                     <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $pasien['tgl_lahir']; ?>">
                                 </div>
-
+                                <div class="form-group col-md-6">
+                                    <label for="no_telp"> <strong>Nomor Telephone</strong></label>
+                                    <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $pasien['no_telp']; ?>">
+                                </div>
                                 <div class="form-group col-md-3">
                                     <label for="jk"><strong>Jenis Kelamin</strong></label>
                                     <select class="form-control" id="jk" name="jk" >
@@ -58,11 +61,8 @@
                                 <label for="alamat"><strong>Alamat</strong></label>
                                 <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $pasien['alamat'] ?></textarea>
                             </div>
-
-                            <div class="form-group">
-                                <label for="no_telp"> <strong>Nomor Telephone</strong></label>
-                                <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $pasien['no_telp']; ?>">
-                            </div>
+                            
+                            <hr>
 
                             <div class="form-group">
                                 <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
@@ -73,40 +73,46 @@
                                 <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
                                 <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi" value="<?= $konsultasi['tanggal']; ?>">
                             </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="anamnese"><strong>Anamnese</strong></label>
+                                    <textarea class="form-control" id="anamnese" name="anamnese" rows="3"><?= $konsultasi['anamnese']; ?></textarea>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="anamnese"><strong>Anamnese</strong></label>
-                                <textarea class="form-control" id="anamnese" name="anamnese" rows="3"><?= $konsultasi['anamnese']; ?></textarea>
+                                <div class="form-group col-md-6">
+                                    <label for="nomenklatur"><strong>Nomenklatur</strong></label>
+                                    <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"><?= $konsultasi['nomenklatur']; ?></textarea>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="nomenklatur"><strong>Nomenklatur</strong></label>
-                                <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"><?= $konsultasi['nomenklatur']; ?></textarea>
-                            </div>
-
+                            <hr>
+                            
                             <div class="form-group">
                                 <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
                                 <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="<?= $riwayat_pasien['id_diagnosa']; ?>">
                             </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="diagnosa"><strong>Diagnosa</strong></label>
+                                    <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $riwayat_pasien['diagnosa']; ?></textarea>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="diagnosa"><strong>Diagnosa</strong></label>
-                                <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $riwayat_pasien['diagnosa']; ?></textarea>
+                                <div class="form-group col-md-6">
+                                    <label for="tindakan"><strong>Tindakan</strong></label>
+                                    <textarea class="form-control" id="tindakan" name="tindakan" rows="3"><?= $konsultasi['tindakan']; ?></textarea>
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="tindakan"><strong>Tindakan</strong></label>
-                                <textarea class="form-control" id="tindakan" name="tindakan" rows="3"><?= $konsultasi['tindakan']; ?></textarea>
-                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="resep"><strong>Resep</strong></label>
+                                    <textarea class="form-control" id="resep" name="resep" rows="3"><?= $konsultasi['resep']; ?></textarea>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="resep"><strong>Resep</strong></label>
-                                <textarea class="form-control" id="resep" name="resep" rows="3"><?= $konsultasi['resep']; ?></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="keterangan"><strong>Keterangan</strong></label>
-                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"><?= $konsultasi['keterangan']; ?></textarea>
+                                <div class="form-group col-md-6">
+                                    <label for="keterangan"><strong>Keterangan</strong></label>
+                                    <textarea class="form-control" id="keterangan" name="keterangan" rows="3"><?= $konsultasi['keterangan']; ?></textarea>
+                                </div>
                             </div>
 
                             <button onclick="window.history.back();" type="button" class="btn btn-secondary">Kembali</button>
