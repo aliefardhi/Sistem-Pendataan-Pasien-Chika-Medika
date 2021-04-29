@@ -1,16 +1,17 @@
 <body>
     
-    <!-- Header
-    <nav class="navbar navbar-dark bg-dark" style="background-image: url('./asset/bg.png');">
+    <!-- Header -->
+    <nav class="navbar navbar-dark bg-dark" style="background-image: url('/chikamedika/asset/bg.png');">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="./asset/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
-        </a>
-        <a class="navbar-brand" href="<?php echo base_url('landing/logout');?>" onclick="return confirm('Anda yakin ingin logout?');" >
-            <img src="./asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
-        </a>
+            <a class="navbar-brand" href="#">
+                <img src="<?= base_url(); ?>asset/logo.png" alt="logo" width="125" height="125" class="d-inline-block align-text-top">
+            </a>
+            
+            <a class="navbar-brand" href="<?php echo base_url('landing/logout');?>" onclick="return confirm('Anda yakin ingin logout?');" >
+                <img src="<?= base_url(); ?>asset/icons/export.png" alt="logo" width="40" height="40" class="d-inline-block align-text-top">
+            </a>
         </div>
-    </nav>
+    </nav> 
     <!-- Akhir Header -->
 
     <div class="container">
@@ -20,7 +21,6 @@
                     <div class="card-body">
                         <div class="card-header">
                             <h2 class="card-title text-center" style="color: #833761 ;">Edit Data Pasien</h2>
-                        
                         </div>
 
                         <form action="<?php echo base_url(). 'home/ubah/'; ?>" method="POST">
@@ -28,27 +28,30 @@
                                 <label for="id_pasien"> <strong>ID Pasien</strong></label>
                                 <input type="text" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
                             </div>
-                            <div class="form-group">
-                                <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $pasien['nama_pasien']; ?>">
-                            </div>
 
-                            <div class="form-group">
-                                <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
-                                <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $pasien['tgl_lahir']; ?>">
-                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
+                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $pasien['nama_pasien']; ?>">
+                                </div>
 
-                            <div class="form-group">
-                                <label for="jk"><strong>Jenis Kelamin</strong></label>
-                                <select class="form-control" id="jk" name="jk" >
-                                    <?php foreach($jk as $gender): ?>
-                                    <?php if( $gender == $pasien['jk']) : ?>
-                                        <option value="<?= $gender; ?>" selected><?= $gender; ?></option>
-                                    <?php else : ?>
-                                        <option value="<?= $gender; ?>"><?= $gender; ?></option>
-                                    <?php endif; ?>
-                                    <?php endforeach; ?>
-                                </select>
+                                <div class="form-group col-md-4">
+                                    <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
+                                    <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $pasien['tgl_lahir']; ?>">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="jk"><strong>Jenis Kelamin</strong></label>
+                                    <select class="form-control" id="jk" name="jk" >
+                                        <?php foreach($jk as $gender): ?>
+                                        <?php if( $gender == $pasien['jk']) : ?>
+                                            <option value="<?= $gender; ?>" selected><?= $gender; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $gender; ?>"><?= $gender; ?></option>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-group">

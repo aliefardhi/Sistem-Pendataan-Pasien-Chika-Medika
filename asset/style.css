@@ -1,6 +1,6 @@
 .btn-ungu{
-    background-color: #833761;
-    border-color: #833761;
+    background-color: #833761 !important;
+    border-color: #833761 !important;
 }
 .btn:hover{
     background-color: #833761;
@@ -38,8 +38,5 @@
 }
 .greeting{
     margin-top: 120px;
-}
-.ungu{
-    color: #833761 !important;
 }
 
