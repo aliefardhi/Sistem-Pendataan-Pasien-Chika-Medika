@@ -94,5 +94,16 @@ class Home extends CI_Controller{
         $this->load->view('templates/footer');
     }
 
+    public function ubah($id_pasien){
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+        $data['jk'] = ['L','P'];
+        
+        $this->load->view('templates/header');
+        $this->load->view('home/ubah', $data);
+        $this->load->view('templates/footer');
+    }
+
     
 }
