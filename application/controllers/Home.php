@@ -89,7 +89,6 @@ class Home extends CI_Controller{
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
         $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
 
-
         $this->load->view('templates/header');
         $this->load->view('home/detail', $data);
         $this->load->view('templates/footer');
@@ -153,10 +152,13 @@ class Home extends CI_Controller{
             'id_pasien' => $idPasien 
         );
 
+        $this->load->library('user_agent');
+
         $this->m_login->ubah_data($where,$dataPasien,'pasien');
         $this->m_login->ubah_data($where,$dataKonsultasi,'konsultasi');
         $this->m_login->ubah_data($where,$dataDiagnosa,'riwayat_pasien');
-        redirect('home');
+        $this->session->set_flashdata('flash','Diubah');
+        redirect('home/detail/'.$idPasien);
     }
     
 }

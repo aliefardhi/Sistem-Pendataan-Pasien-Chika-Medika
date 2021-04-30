@@ -13,8 +13,17 @@
 
     <div class="container">   
 
-        <div class="row mt-3 mx-auto">
+        <div class="row mt-3 mb-3 mx-auto">
             <div class="col-md-7 mx-auto">
+
+            <?php if($this->session->flashdata('flash')): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data Pasien <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            <?php endif; ?>
             
                 <div class="card">
                     <div class="card-body">
