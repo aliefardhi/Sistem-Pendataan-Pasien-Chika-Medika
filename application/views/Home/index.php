@@ -105,13 +105,9 @@
             <div class="form-group col-md-3">
                 <label for="jk"><strong>Jenis Kelamin</strong></label>
                 <select class="form-control" id="jk" name="jk" >
-                    <?php foreach($jk as $gender): ?>
-                    <?php if( $gender == $pasien['jk']) : ?>
-                        <option value="<?= $gender; ?>" selected><?= $gender; ?></option>
-                    <?php else : ?>
-                        <option value="<?= $gender; ?>"><?= $gender; ?></option>
-                    <?php endif; ?>
-                    <?php endforeach; ?>
+                    <option>Pilih Jenis Kelamin</option>
+                    <option>L</option>
+                    <option>P</option>
                 </select>
             </div>
         </div>
