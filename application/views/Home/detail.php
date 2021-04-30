@@ -62,6 +62,10 @@
                                         <td><?= $pasien['alamat']; ?></td>
                                     </tr>
                                     <tr>
+                                        <th>Jenis Kelamin</th>
+                                        <td><?= $pasien['jk']; ?></td>
+                                    </tr>
+                                    <tr>
                                         <th>No. Telepon</th>
                                         <td><?= $pasien['no_telp']; ?></td>
                                     </tr>
