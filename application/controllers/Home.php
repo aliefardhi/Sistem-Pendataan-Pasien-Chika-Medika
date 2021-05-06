@@ -93,7 +93,7 @@ class Home extends CI_Controller{
         $this->load->view('home/detail', $data);
         $this->load->view('templates/footer');
     }
-
+    
     public function ubah($id_pasien){
         $data['pasien'] = $this->m_login->getPasienId($id_pasien);
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
