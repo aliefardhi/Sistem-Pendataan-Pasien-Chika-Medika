@@ -23,16 +23,19 @@
                             <h2 class="card-title text-center" style="color: #833761 ;">Tambah Visit Pasien</h2>
                         </div>
 
-                        <form action="" method="POST">
+                        <form action="<?php echo base_url('home/tambah_visit');?>" method="POST">
                         
-                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref"><strong>Visit Ke-</strong></label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                <?php foreach($konsultasi as $kon): ?>
-                                    <option><?= $konsultasi['visit']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+            
                             
                             <hr>
+                            <div class="form-group">
+                                <label for="visit"> <strong>Visit</strong></label>
+                                <input type="text" class="form-control" id="visit" name="visit" value="<?= $konsultasi['visit']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="id_konsultasi"> <strong>Id Konsultasi</strong></label>
+                                <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="<?= $konsultasi['id_konsultasi']; ?>">
+                            </div>
 
                             <div class="form-group">
                                 <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>

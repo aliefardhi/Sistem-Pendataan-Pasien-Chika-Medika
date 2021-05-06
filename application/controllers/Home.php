@@ -171,4 +171,26 @@ class Home extends CI_Controller{
         $this->load->view('templates/footer');
     }
 
+    public function tambah_visit(){
+        $idKonsultasi = $this->input->post('id_konsultasi');
+        $tglKonsultasi = $this->input->post('tgl_konsultasi');
+        $anamnesePasien = $this->input->post('anamnese');
+        $nomenklaturPasien = $this->input->post('nomenklatur');
+        $tindakanPasien = $this->input->post('tindakan');
+        $resepPasien = $this->input->post('resep');
+        $keteranganPasien = $this->input->post('keterangan');
+
+        $dataKonsultasi = array(
+            'id_konsultasi' => $idKonsultasi,
+            'tanggal' => $tglKonsultasi,
+            'anamnese' => $anamnesePasien,
+            'nomenklatur' => $nomenklaturPasien,
+            'tindakan' => $tindakanPasien,
+            'resep' => $resepPasien,
+            'keterangan' => $keteranganPasien
+        );
+
+        $this->m_login->input_data($dataKonsultasi,'konsultasi');
+    }
+
 }
