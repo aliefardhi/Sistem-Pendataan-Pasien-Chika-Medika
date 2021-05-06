@@ -30,6 +30,10 @@
                         <h3 class="card-title text-center" style="color: #833761 ;"><?= $pasien['nama_pasien']; ?></h3>
                         <h5 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h5>
                         
+                        <a href="<?= base_url(); ?>home/visit/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu btn-sm mb-3">
+                          Tambah Visit
+                        </a>
+
                         <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
                           Edit Data Pasien
                         </a>
@@ -39,7 +43,7 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>Visit ke-</th>
+                                        <th>Tampilkan Visit ke-</th>
                                         <td>
                                             <form action="<?= base_url(); ?>home/visit_counter" method="POST">
                                                 <div class="form-group">
@@ -52,7 +56,10 @@
                                                             <?php
                                                             }
                                                         ?>
+
                                                     </select>
+
+                                                    <button type="submit" name="ubah" class="btn btn-primary btn-sm md-5">Pilih</button>
                                                 </div>
                                             </form>
                                             
