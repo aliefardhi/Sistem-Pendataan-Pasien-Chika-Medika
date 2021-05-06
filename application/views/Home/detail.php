@@ -41,12 +41,17 @@
                                     <tr>
                                         <th>Visit ke-</th>
                                         <td>
-                                            <form action="" method="POST">
+                                            <form action="<?= base_url(); ?>home/visit_counter" method="POST">
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1"></label>
                                                     <select class="form-control-sm" id="exampleFormControlSelect1">
-                                                    <option>1</option>
-                                                    <option>2</option>
+                                                        <?php
+                                                            $query = $this->db->query("select visit from konsultasi where id_pasien=$pasien[id_pasien]");
+                                                            foreach($query->result() as $row){
+                                                                ?> <option> <?= $row->visit; ?> </option>
+                                                            <?php
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </form>
