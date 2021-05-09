@@ -220,7 +220,7 @@ class Home extends CI_Controller{
 
          //Count Id_Riwayat
          $countRiwayat = 1;
-         $query = $this->db->query("select id_konsultasi from riwayat_pasien");
+         $query = $this->db->query("select id_diagnosa from riwayat_pasien");
          foreach($query->result() as $row){
              $countRiwayat++;
              if($countRiwayat == $row->id_diagnosa){
