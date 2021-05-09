@@ -24,9 +24,6 @@
                         </div>
 
                         <form action="<?= base_url(); ?>home/tambah_visit/<?= $pasien['id_pasien']; ?>" method="POST">
-                        
-            
-                            
                             <hr>
                             
                             <div class="form-row">
