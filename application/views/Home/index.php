@@ -115,10 +115,6 @@
         </div>
         
         <hr>
-        <div class="form-group">
-            <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
-            <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi">
-        </div>
         
         <div class="form-row">
             <div class="form-group col-md-6">

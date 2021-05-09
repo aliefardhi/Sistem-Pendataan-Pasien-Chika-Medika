@@ -25,8 +25,8 @@
 
                         <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
                             <div class="form-group">
-                                <label for="id_pasien"> <strong>ID Pasien</strong></label>
-                                <input type="text" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
+
+                                <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
                             </div>
 
                             <div class="form-group">
@@ -64,15 +64,6 @@
                             
                             <hr>
 
-                            <div class="form-group">
-                                <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
-                                <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="<?= $konsultasi['id_konsultasi']; ?>">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
-                                <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi" value="<?= $konsultasi['tanggal']; ?>">
-                            </div>
                             
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -87,10 +78,6 @@
                             </div>
                             <hr>
                             
-                            <div class="form-group">
-                                <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-                                <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="<?= $riwayat_pasien['id_diagnosa']; ?>">
-                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="diagnosa"><strong>Diagnosa</strong></label>
