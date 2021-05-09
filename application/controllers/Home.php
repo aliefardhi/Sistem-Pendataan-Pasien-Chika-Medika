@@ -192,26 +192,44 @@ class Home extends CI_Controller{
     }
 
     public function tambah_visit($id_pasien){
-        $idKonsultasi = $this->input->post('id_konsultasi');
         $tglKonsultasi = $this->input->post('tgl_konsultasi');
         $anamnesePasien = $this->input->post('anamnese');
         $nomenklaturPasien = $this->input->post('nomenklatur');
         $tindakanPasien = $this->input->post('tindakan');
         $resepPasien = $this->input->post('resep');
         $keteranganPasien = $this->input->post('keterangan');
-        $idDiagnosa = $this->input->post('id_diagnosa');
         $diagnosaPasien = $this->input->post('diagnosa');
-        $idPasienbaru = $id_pasien;
 
+        //Count visit
         $count = 0;
-        $query = $this->db->query("select visit from konsultasi where id_pasien=$idPasienbaru");
+        $query = $this->db->query("select visit from konsultasi where id_pasien=$id_pasien");
         foreach($query->result() as $row){
             $count++;
         }
         $count +=1;
 
+        //Count Id_konsultasi
+        $countKonsultasi = 1;
+        $query = $this->db->query("select id_konsultasi from konsultasi");
+        foreach($query->result() as $row){
+            $countKonsultasi++;
+            if($countKonsultasi == $row->id_konsultasi){
+                $countKonsultasi+=1;
+            }
+        }
+
+         //Count Id_Riwayat
+         $countRiwayat = 1;
+         $query = $this->db->query("select id_konsultasi from riwayat_pasien");
+         foreach($query->result() as $row){
+             $countRiwayat++;
+             if($countRiwayat == $row->id_diagnosa){
+                 $countRiwayat+=1;
+             }
+         }
+
         $dataKonsultasi = array(
-            'id_konsultasi' => $idKonsultasi,
+            'id_konsultasi' => $countKonsultasi,
             'tanggal' => $tglKonsultasi,
             'anamnese' => $anamnesePasien,
             'nomenklatur' => $nomenklaturPasien,

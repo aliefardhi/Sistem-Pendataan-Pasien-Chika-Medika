@@ -29,15 +29,6 @@
                             
                             <hr>
                             <div class="form-group">
-                                <label for="visit"> <strong>Visit</strong></label>
-                                <input type="text" class="form-control" id="visit" name="visit" value="<?= $konsultasi['visit']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="id_konsultasi"> <strong>Id Konsultasi</strong></label>
-                                <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="<?= $konsultasi['id_konsultasi']; ?>">
-                            </div>
-
-                            <div class="form-group">
                                 <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
                                 <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi" value="<?= $konsultasi['tanggal']; ?>">
                             </div>
@@ -55,10 +46,6 @@
                             </div>
                             <hr>
                             
-                            <div class="form-group">
-                                <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-                                <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="<?= $riwayat_pasien['id_diagnosa']; ?>">
-                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="diagnosa"><strong>Diagnosa</strong></label>
