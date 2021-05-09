@@ -177,7 +177,7 @@ class Home extends CI_Controller{
         $this->m_login->ubah_data($where,$dataPasien,'pasien');
         $this->m_login->ubah_data($where,$dataKonsultasi,'konsultasi');
         $this->m_login->ubah_data($where,$dataDiagnosa,'riwayat_pasien');
-        $this->session->set_flashdata('flash','Diubah');
+        $this->session->set_flashdata('flash','Diubah');    
         redirect('home/detail/'.$idPasien);
     }
     
