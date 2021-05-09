@@ -37,7 +37,7 @@
               <th>Tanggal Lahir</th>
               <th>Alamat</th>
               <th>No. Telepon</th>
-              <th>Tanggal Kunjungan</th>
+              
               <th>Aksi</th>
             </tr>
           </thead>
@@ -51,7 +51,7 @@
                 <td><?=$ps->tgl_lahir?></td>
                 <td><?=$ps->alamat?></td>
                 <td><?=$ps->no_telp?></td>
-                <td><?=$ps->tanggal?></td>
+                
                 <td class="text-center">
                   <a href="<?= base_url(); ?>home/detail/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
                     Detail

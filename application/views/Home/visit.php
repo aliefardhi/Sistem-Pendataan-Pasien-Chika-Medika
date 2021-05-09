@@ -23,7 +23,7 @@
                             <h2 class="card-title text-center" style="color: #833761 ;">Tambah Visit Pasien</h2>
                         </div>
 
-                        <form action="<?php echo base_url('home/tambah_visit');?>" method="POST">
+                        <form action="<?= base_url(); ?>home/tambah_visit/<?= $pasien['id_pasien']; ?>" method="POST">
                         
             
                             

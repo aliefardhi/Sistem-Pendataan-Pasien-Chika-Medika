@@ -28,24 +28,44 @@ class Home extends CI_Controller{
     }
     
     function tambah_aksi(){
-        $id_pasien = $this->input->post('id_pasien');
+        
         $nama = $this->input->post('nama');
         $tgl_lahir = $this->input->post('tgl_lahir');
         $jk = $this->input->post('jk');
         $alamat = $this->input->post('alamat');
         $no_telp = $this->input->post('no_telp');
-        $id_konsultasi = $this->input->post('id_konsultasi');
         $tgl_konsultasi = $this->input->post('tgl_konsultasi');
         $anamnese = $this->input->post('anamnese');
         $nomenklatur = $this->input->post('nomenklatur');
         $resep = $this->input->post('resep');
         $keterangan = $this->input->post('keterangan');
-        $id_diagnosa = $this->input->post('id_diagnosa');
         $diagnosa = $this->input->post('diagnosa');
         $tindakan = $this->input->post('tindakan');
 
+        $countPasien = 1;
+        $query = $this->db->query("select id_pasien from pasien");
+        foreach($query->result() as $row){
+            $countPasien++;
+            if($countPasien == $row->id_pasien){
+                $countPasien+=1;
+            }
+        }
+
+        $countKonsultasi = 1;
+        $query = $this->db->query("select id_konsultasi from konsultasi");
+        foreach($query->result() as $row){
+            $countKonsultasi++;
+        }
+
+        $countRiwayat = 1;
+        $query = $this->db->query("select id_diagnosa from riwayat_pasien");
+        foreach($query->result() as $row){
+            $countRiwayat++;
+        }
+
+
         $dataPasien = array(
-            'id_pasien' => $id_pasien,
+            'id_pasien' => $countPasien,
             'nama_pasien' => $nama,
             'tgl_lahir' => $tgl_lahir,
             'jk' => $jk,
@@ -53,7 +73,7 @@ class Home extends CI_Controller{
             'no_telp' => $no_telp,
         );
         $dataKonsultasi = array(
-            'id_konsultasi' => $id_konsultasi,
+            'id_konsultasi' => $countKonsultasi,
             'tanggal' => $tgl_konsultasi,
             'anamnese' => $anamnese,
             'nomenklatur' => $nomenklatur,
@@ -61,12 +81,12 @@ class Home extends CI_Controller{
             'resep' => $resep,
             'keterangan' => $keterangan,
             'visit' => 1,
-            'id_pasien' => $id_pasien,
+            'id_pasien' => $countPasien,
         );
         $dataDiagnosa = array(
-            'id_diagnosa' => $id_diagnosa,
+            'id_diagnosa' => $countRiwayat,
             'diagnosa' => $diagnosa,
-            'id_pasien' => $id_pasien,
+            'id_pasien' => $countPasien,
         );
         $this->m_login->input_data($dataPasien,'pasien');
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
@@ -171,7 +191,7 @@ class Home extends CI_Controller{
         $this->load->view('templates/footer');
     }
 
-    public function tambah_visit(){
+    public function tambah_visit($id_pasien){
         $idKonsultasi = $this->input->post('id_konsultasi');
         $tglKonsultasi = $this->input->post('tgl_konsultasi');
         $anamnesePasien = $this->input->post('anamnese');
@@ -179,6 +199,16 @@ class Home extends CI_Controller{
         $tindakanPasien = $this->input->post('tindakan');
         $resepPasien = $this->input->post('resep');
         $keteranganPasien = $this->input->post('keterangan');
+        $idDiagnosa = $this->input->post('id_diagnosa');
+        $diagnosaPasien = $this->input->post('diagnosa');
+        $idPasienbaru = $id_pasien;
+
+        $count = 0;
+        $query = $this->db->query("select visit from konsultasi where id_pasien=$idPasienbaru");
+        foreach($query->result() as $row){
+            $count++;
+        }
+        $count +=1;
 
         $dataKonsultasi = array(
             'id_konsultasi' => $idKonsultasi,
@@ -187,10 +217,20 @@ class Home extends CI_Controller{
             'nomenklatur' => $nomenklaturPasien,
             'tindakan' => $tindakanPasien,
             'resep' => $resepPasien,
-            'keterangan' => $keteranganPasien
+            'keterangan' => $keteranganPasien,
+            'visit' => $count,
+            'id_pasien' => $id_pasien,
+        );
+
+        $dataDiagnosa = array(
+            'id_diagnosa' => $idDiagnosa,
+            'diagnosa' => $diagnosaPasien,
+            'id_pasien' => $id_pasien,
         );
 
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
+        $this->m_login->input_data($dataDiagnosa, 'riwayat_pasien');
+        redirect('home');
     }
 
 }
