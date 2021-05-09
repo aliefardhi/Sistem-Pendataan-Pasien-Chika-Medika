@@ -241,7 +241,7 @@ class Home extends CI_Controller{
         );
 
         $dataDiagnosa = array(
-            'id_diagnosa' => $idDiagnosa,
+            'id_diagnosa' => $countRiwayat,
             'diagnosa' => $diagnosaPasien,
             'id_pasien' => $id_pasien,
         );
