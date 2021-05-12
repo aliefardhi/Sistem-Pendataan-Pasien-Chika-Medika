@@ -37,7 +37,6 @@
               <th>Tanggal Lahir</th>
               <th>Alamat</th>
               <th>No. Telepon</th>
-              
               <th>Aksi</th>
             </tr>
           </thead>
@@ -53,7 +52,7 @@
                 <td><?=$ps->no_telp?></td>
                 
                 <td class="text-center">
-                  <a href="<?= base_url(); ?>home/detail/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
+                  <a href="<?= base_url(); ?>home/showInfo/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
                     Detail
                   </a>
     

@@ -39,12 +39,12 @@
       $this->ci =& get_instance();
     }
 
-    function json(){
-      $this->load->library('datatables');
-      $this->datatables->select('*');
-      $this->datatables->from('pasien');
-      return print_r($this->datatables->generate());
-  }
+  //   function json(){
+  //     $this->load->library('datatables');
+  //     $this->datatables->select('*');
+  //     $this->datatables->from('pasien');
+  //     return print_r($this->datatables->generate());
+  // }
 
     /**
     * Generates the SELECT portion of the query

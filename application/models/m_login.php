@@ -11,6 +11,11 @@ class M_login extends CI_Model{
 		return $data->result();
 	}
 
+	function tampilKonsul($id_pasien){
+		$data = $this->db->query("SELECT * FROM konsultasi WHERE id_pasien=$id_pasien");
+		return $data->result();
+	}
+
 	function input_data($data,$table){
 		$this->db->insert($table,$data);
 	}

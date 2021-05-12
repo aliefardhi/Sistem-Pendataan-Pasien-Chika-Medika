@@ -17,6 +17,12 @@
   });
   </script>
 
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $('#tabelInfo').DataTable();
+  });
+  </script>
+
 <script src="<?= base_url('asset/'); ?>script.js"></script>
 </body>
 

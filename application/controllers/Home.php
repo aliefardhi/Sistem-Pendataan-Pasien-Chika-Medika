@@ -205,4 +205,15 @@ class Home extends CI_Controller{
         redirect('home');
     }
 
+    public function showInfo($id_pasien){
+        $data['pasien'] = $this->m_login->tampilKonsul($id_pasien);
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+
+        $this->load->view('templates/header');
+        $this->load->view('home/info', $data);
+        $this->load->view('templates/footer');
+    }
+
 }
