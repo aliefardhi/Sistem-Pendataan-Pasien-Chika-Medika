@@ -25,43 +25,6 @@
 
                         <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
                             <div class="form-group">
-
-                                <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
-                                <input type="text" class="form-control" id="nama" name="nama" value="<?= $pasien['nama_pasien']; ?>">
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-3">
-                                    <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
-                                    <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $pasien['tgl_lahir']; ?>">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="no_telp"> <strong>Nomor Telephone</strong></label>
-                                    <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $pasien['no_telp']; ?>">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="jk"><strong>Jenis Kelamin</strong></label>
-                                    <select class="form-control" id="jk" name="jk" >
-                                        <?php foreach($jk as $gender): ?>
-                                        <?php if( $gender == $pasien['jk']) : ?>
-                                            <option value="<?= $gender; ?>" selected><?= $gender; ?></option>
-                                        <?php else : ?>
-                                            <option value="<?= $gender; ?>"><?= $gender; ?></option>
-                                        <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <?php
-        /*
-                            ?>
-                            
-
-                            <div class="form-group">
                                 <label for="alamat"><strong>Alamat</strong></label>
                                 <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $pasien['alamat'] ?></textarea>
                             </div>
@@ -105,9 +68,7 @@
                                     <textarea class="form-control" id="keterangan" name="keterangan" rows="3"><?= $konsultasi['keterangan']; ?></textarea>
                                 </div>
                             </div>
-                            <?php
-                            */
-                            ?>
+                           
                             
 
                             <button onclick="window.history.back();" type="button" class="btn btn-secondary">Kembali</button>

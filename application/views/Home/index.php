@@ -52,9 +52,9 @@
                 <td><?=$ps->no_telp?></td>
                 
                 <td class="text-center">
-                  <a href="<?= base_url(); ?>home/showInfo/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
-                    Detail
-                  </a>
+                    <a href="<?= base_url(); ?>home/showInfo/<?= $ps->id_pasien; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
+                      Detail
+                    </a>
     
                   <input type="hidden" name="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
                   <a href="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
