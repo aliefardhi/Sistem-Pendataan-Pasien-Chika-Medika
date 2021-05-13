@@ -81,7 +81,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="diagnosa"><strong>Diagnosa</strong></label>
-                                    <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $riwayat_pasien['diagnosa']; ?></textarea>
+                                    <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $konsultasi['diagnosa']; ?></textarea>
                                 </div>
 
                                 <div class="form-group col-md-6">
