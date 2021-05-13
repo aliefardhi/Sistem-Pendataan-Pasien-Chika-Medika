@@ -92,6 +92,18 @@ class Home extends CI_Controller{
         $data['pasien'] = $this->m_login->getPasienId($id_pasien);
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
         $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+        //$data['konsultasi'] = $this->m_login->getVisit($id_pasien);
+
+        $this->load->view('templates/header');
+        $this->load->view('home/detail', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function pilih_visit($id_pasien,$visit){
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+        $data['konsultasi'] = $this->m_login->getVisit($id_pasien,$visit);
 
         $this->load->view('templates/header');
         $this->load->view('home/detail', $data);

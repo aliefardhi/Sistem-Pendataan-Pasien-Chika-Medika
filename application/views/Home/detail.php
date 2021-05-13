@@ -45,80 +45,73 @@
                                     <tr>
                                         <th>Tampilkan Visit ke-</th>
                                         <td>
-                                            <form action="<?= base_url(); ?>home/visit_counter" method="POST">
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1"></label>
-                                                    <select class="form-control-sm" id="exampleFormControlSelect1">
+                                            
+                                                <select class="form-control-sm" name="pilih" id="pilih">
+                                                    <?php
+                                                        $query = $this->db->query("select visit from konsultasi where id_pasien=$pasien[id_pasien]");
+                                                        foreach($query->result() as $row){
+                                                            ?> <option> <?= $row->visit; ?> </option>
                                                         <?php
-                                                            $query = $this->db->query("select visit from konsultasi where id_pasien=$pasien[id_pasien]");
-                                                            foreach($query->result() as $row){
-                                                                ?> <option> <?= $row->visit; ?> </option>
-                                                            <?php
-                                                            }
-                                                        ?>
-
-                                                    </select>
-
-                                                    <button type="submit" name="ubah" class="btn btn-primary btn-sm md-5">Pilih</button>
-                                                </div>
-                                            </form>
+                                                        }
+                                                    ?>
+                                                </select>
                                             
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>Tanggal Lahir</th>
-                                        <td><?= $pasien['tgl_lahir']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Alamat</th>
-                                        <td><?= $pasien['alamat']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Jenis Kelamin</th>
-                                        <td><?= $pasien['jk']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>No. Telepon</th>
-                                        <td><?= $pasien['no_telp']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tanggal kunjungan</th>
-                                        <td><?= $konsultasi['tanggal']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Anamnese</th>
-                                        <td><?= $konsultasi['anamnese']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Diagnosa</th>
-                                        <td><?= $riwayat_pasien['diagnosa']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Nomenklatur</th>
-                                        <td><?= $konsultasi['nomenklatur']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tindakan</th>
-                                        <td><?= $konsultasi['tindakan']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Resep</th>
-                                        <td><?= $konsultasi['resep']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Keterangan</th>
-                                        <td><?= $konsultasi['keterangan']; ?></td>
-                                    </tr>
+                                    <div id="show-visit">
+                                        <tr>
+                                            <th>Tanggal Lahir</th>
+                                            <td><?= $pasien['tgl_lahir']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Alamat</th>
+                                            <td><?= $pasien['alamat']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Jenis Kelamin</th>
+                                            <td><?= $pasien['jk']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>No. Telepon</th>
+                                            <td><?= $pasien['no_telp']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tanggal kunjungan</th>
+                                            <td><?= $konsultasi['tanggal']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Anamnese</th>
+                                            <td><?= $konsultasi['anamnese']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Diagnosa</th>
+                                            <td><?= $riwayat_pasien['diagnosa']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Nomenklatur</th>
+                                            <td><?= $konsultasi['nomenklatur']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tindakan</th>
+                                            <td><?= $konsultasi['tindakan']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Resep</th>
+                                            <td><?= $konsultasi['resep']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Keterangan</th>
+                                            <td><?= $konsultasi['keterangan']; ?></td>
+                                        </tr>
+                                    </div>
                                 </tbody>
 
                             </table>
                         </div>
                         <a href="<?= base_url(); ?>home" class="btn btn-primary">Kembali</a>
                     </div>
-                
-                    
-                    
                 </div>
             </div>
         </div>
     </div>
+

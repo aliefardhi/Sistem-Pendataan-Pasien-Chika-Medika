@@ -353,7 +353,7 @@
 </div>
 <!-- Akhir Modal Ubah Data Pasien -->
 
-<script>
+<!-- <script>
 $(document).ready(function(){
   $(document).on('click', '#set_dtl', function(){
     var id_pasien = $(this).data('id_pasien');
@@ -364,4 +364,4 @@ $(document).ready(function(){
     $('#tgl_lahir').text(tgl_lahir);
   })
 })
-</script>
+</script> -->
