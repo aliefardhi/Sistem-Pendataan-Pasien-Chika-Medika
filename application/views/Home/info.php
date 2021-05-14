@@ -77,6 +77,7 @@
                 <th>Tanggal Kunjungan</th>
                 <th>Anamnese</th>
                 <th>Nomenklatur</th>
+                <th>Diagnosa</th>
                 <th>Tindakan</th>
                 <th>Resep</th>
                 <th>Keterangan</th>
@@ -93,6 +94,7 @@
                     <td><?=$row->tanggal?></td>
                     <td><?=$row->anamnese?></td>
                     <td><?=$row->nomenklatur?></td>
+                    <td><?=$row->diagnosa?></td>
                     <td><?=$row->tindakan?></td>
                     <td><?=$row->resep?></td>
                     <td><?=$row->keterangan?></td>
