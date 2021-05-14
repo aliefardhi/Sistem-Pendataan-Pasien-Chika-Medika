@@ -120,6 +120,27 @@ class Home extends CI_Controller{
             'no_telp' => $noTelp
         );
 
+        $where = array(
+            'id_pasien' => $idPasien 
+        );
+
+        $this->load->library('user_agent');
+
+        $this->m_login->ubah_data($where,$dataPasien,'pasien');
+        $this->m_login->ubah_data($where,$dataKonsultasi,'konsultasi');
+        $this->session->set_flashdata('flash','Diubah');    
+        redirect('home/detail/'.$idPasien);
+    }
+
+    public function ubahVisit($id_pasien, $visit){
+        $data['konsultasi'] = $this->m_login->getVisit($id_pasien, $visit);
+
+        $this->load->view('templates/header');
+        $this->load->view('home/ubahVisit', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function aksi_ubah_visit(){
         $anamnesePasien = $this->input->post('anamnese');
         $nomenklaturPasien = $this->input->post('nomenklatur');
         $diagnosaPasien = $this->input->post('diagnosa');
@@ -142,10 +163,9 @@ class Home extends CI_Controller{
 
         $this->load->library('user_agent');
 
-        $this->m_login->ubah_data($where,$dataPasien,'pasien');
         $this->m_login->ubah_data($where,$dataKonsultasi,'konsultasi');
         $this->session->set_flashdata('flash','Diubah');    
-        redirect('home/detail/'.$idPasien);
+        redirect('home/info/'.$idPasien);
     }
     
     public function visit($id_pasien){

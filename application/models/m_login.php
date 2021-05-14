@@ -41,4 +41,8 @@ class M_login extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+
+	public function getVisit($id_pasien, $visit){
+		return $this->db->query('SELECT visit from konsultasi where id_pasien="$id_pasien" AND visit="$visit"');
+	}
 }

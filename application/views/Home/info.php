@@ -98,8 +98,8 @@
                     <td><?=$row->keterangan?></td>
                     <td class="text-center">
 
-                    <a href="<?= base_url(); ?>home/ubahVisit/<?= $pasien['id_pasien']; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
-                    Detail
+                    <a href="<?= base_url(); ?>home/ubahVisit/<?= $row->id_pasien ?>/<?= $row->visit; ?>" id="set_dtl" class="btn btn-primary btn-sm" >
+                    Edit
                   </a>
         
                     <!-- <input type="hidden" name="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>"> -->

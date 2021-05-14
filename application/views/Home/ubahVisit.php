@@ -23,12 +23,7 @@
                             <h2 class="card-title text-center" style="color: #833761 ;">Edit Data Pasien</h2>
                         </div>
 
-                        <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
-                            <div class="form-group">
-                                <label for="alamat"><strong>Alamat</strong></label>
-                                <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $pasien['alamat'] ?></textarea>
-                            </div>
-                            
+                        <form action="<?php echo base_url(). 'home/aksi_ubah_visit'; ?>" method="POST">
                             <hr>
 
                             
