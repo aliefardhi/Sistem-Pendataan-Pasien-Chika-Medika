@@ -34,9 +34,12 @@
                           Tambah Visit
                         </a>
 
-                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
+                        <?php if(isset($_GET['visit'])){ ?>
+
+                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>/<?= $_GET['visit']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
                           Edit Data Pasien
                         </a>
+                        <?php } ?>
 
                         <div class="table-responsive">
                             
@@ -45,21 +48,30 @@
                                     <tr>
                                         <th>Tampilkan Visit ke-</th>
                                         <td>
-                                            <form action="<?= base_url(); ?>home/visit_counter" method="POST">
+                                            <form action="<?= $_SERVER["PHP_SELF"]; ?>" method="GET">
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1"></label>
-                                                    <select class="form-control-sm" id="exampleFormControlSelect1">
+                                                    <select name="visit" class="form-control-sm" id="exampleFormControlSelect1">
                                                         <?php
                                                             $query = $this->db->query("select visit from konsultasi where id_pasien=$pasien[id_pasien]");
                                                             foreach($query->result() as $row){
-                                                                ?> <option> <?= $row->visit; ?> </option>
+                                                                $ket='';
+
+                                                                if(isset($_GET['visit'])){
+                                                                    $visit=trim($_GET['visit']);
+
+                                                                    if($visit == $konsultasi['visit']){
+                                                                        $ket='selected';
+                                                                    }
+                                                                }?> 
+                                                                <option <?= $ket ?> value="<?= $row->visit; ?>"> <?= $row->visit; ?> </option>
                                                             <?php
                                                             }
                                                         ?>
 
                                                     </select>
 
-                                                    <button type="submit" name="ubah" class="btn btn-primary btn-sm md-5">Pilih</button>
+                                                    <button type="submit" class="btn btn-primary btn-sm md-5">Pilih</button>
                                                 </div>
                                             </form>
                                             
@@ -81,7 +93,46 @@
                                         <th>No. Telepon</th>
                                         <td><?= $pasien['no_telp']; ?></td>
                                     </tr>
+                                    <?php 
+                                        if(isset($_GET['visit'])){
+                                            $visit = trim($_GET['visit']);
+                                            $sql = $this->db->query("SELECT distinct tanggal, anamnese, nomenklatur, tindakan, resep, keterangan, diagnosa FROM konsultasi NATURAL JOIN riwayat_pasien where konsultasi.id_pasien=$pasien[id_pasien] and visit='$visit'");
+                                            $rslt = $sql->result_array();
+                                            foreach($rslt as $result){
+
+                                    ?>
                                     <tr>
+                                        <th>Tanggal kunjungan</th>
+                                        <td><?= $result['tanggal']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Anamnese</th>
+                                        <td><?= $result['anamnese']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Diagnosa</th>
+                                        <td><?= $riwayat_pasien['diagnosa']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nomenklatur</th>
+                                        <td><?= $result['nomenklatur']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tindakan</th>
+                                        <td><?= $result['tindakan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Resep</th>
+                                        <td><?= $result['resep']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Keterangan</th>
+                                        <td><?= $result['keterangan']; ?></td>
+                                    </tr>
+                                    <?php } } ?>
+
+                                    <?php if(!isset($_GET['visit'])){ ?>
+                                        <tr>
                                         <th>Tanggal kunjungan</th>
                                         <td><?= $konsultasi['tanggal']; ?></td>
                                     </tr>
@@ -109,8 +160,8 @@
                                         <th>Keterangan</th>
                                         <td><?= $konsultasi['keterangan']; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-
                             </table>
                         </div>
                         <a href="<?= base_url(); ?>home" class="btn btn-primary">Kembali</a>

@@ -98,10 +98,11 @@ class Home extends CI_Controller{
         $this->load->view('templates/footer');
     }
     
-    public function ubah($id_pasien){
+    public function ubah($id_pasien,$visit){
         $data['pasien'] = $this->m_login->getPasienId($id_pasien);
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
         $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
+        $data['konsultasi'] = $this->m_login->getVisit($id_pasien,$visit);
         $data['jk'] = ['L','P'];
         
         $this->load->view('templates/header');
@@ -116,6 +117,7 @@ class Home extends CI_Controller{
         $jenisKelamin = $this->input->post('jk');
         $alamatPasien = $this->input->post('alamat');
         $noTelp = $this->input->post('no_telp');
+        $visit = $this->input->post('visit');
 
         $dataPasien = array(
             'id_pasien' => $idPasien,
@@ -146,13 +148,18 @@ class Home extends CI_Controller{
         );
         
         $where = array(
-            'id_pasien' => $idPasien 
+            'id_pasien' => $idPasien,
+        );
+
+        $whereKonsultasi = array(
+            'id_pasien' => $idPasien,
+            'visit' => $visit
         );
 
         $this->load->library('user_agent');
 
         $this->m_login->ubah_data($where,$dataPasien,'pasien');
-        $this->m_login->ubah_data($where,$dataKonsultasi,'konsultasi');
+        $this->m_login->ubah_data($whereKonsultasi,$dataKonsultasi,'konsultasi');
         $this->m_login->ubah_data($where,$dataDiagnosa,'riwayat_pasien');
         $this->session->set_flashdata('flash','Diubah');    
         redirect('home/detail/'.$idPasien);

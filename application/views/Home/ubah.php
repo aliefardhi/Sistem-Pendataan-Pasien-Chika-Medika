@@ -24,8 +24,9 @@
                         </div>
 
                         <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
-                            <div class="form-group">
+                            <input type="hidden" class="form-control" id="visit" name="visit" value="<?= $konsultasi['visit']; ?>">
 
+                            <div class="form-group">
                                 <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
                             </div>
 
