@@ -96,7 +96,7 @@
                                     <?php 
                                         if(isset($_GET['visit'])){
                                             $visit = trim($_GET['visit']);
-                                            $sql = $this->db->query("SELECT distinct tanggal, anamnese, nomenklatur, tindakan, resep, keterangan, diagnosa FROM konsultasi NATURAL JOIN riwayat_pasien where konsultasi.id_pasien=$pasien[id_pasien] and visit='$visit'");
+                                            $sql = $this->db->query("SELECT tanggal, anamnese, nomenklatur, tindakan, resep, keterangan, diagnosa FROM konsultasi where konsultasi.id_pasien=$pasien[id_pasien] and visit='$visit'");
                                             $rslt = $sql->result_array();
                                             foreach($rslt as $result){
 
@@ -111,7 +111,7 @@
                                     </tr>
                                     <tr>
                                         <th>Diagnosa</th>
-                                        <td><?= $riwayat_pasien['diagnosa']; ?></td>
+                                        <td><?= $result['diagnosa']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Nomenklatur</th>
@@ -142,7 +142,7 @@
                                     </tr>
                                     <tr>
                                         <th>Diagnosa</th>
-                                        <td><?= $riwayat_pasien['diagnosa']; ?></td>
+                                        <td><?= $konsultasi['diagnosa']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Nomenklatur</th>

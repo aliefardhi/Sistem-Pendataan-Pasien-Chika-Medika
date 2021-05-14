@@ -62,19 +62,16 @@ class Home extends CI_Controller{
             'tanggal' => $tgl_konsultasi,
             'anamnese' => $anamnese,
             'nomenklatur' => $nomenklatur,
+            'diagnosa' => $diagnosa,
             'tindakan' => $tindakan,
             'resep' => $resep,
             'keterangan' => $keterangan,
             'visit' => 1,
             'id_pasien' => $countPasien,
         );
-        $dataDiagnosa = array(
-            'diagnosa' => $diagnosa,
-            'id_pasien' => $countPasien,
-        );
+
         $this->m_login->input_data($dataPasien,'pasien');
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
-        $this->m_login->input_data($dataDiagnosa,'riwayat_pasien');
         $this->session->set_flashdata('flash','Ditambahkan');
         redirect(base_url('home'));
     }
@@ -82,7 +79,6 @@ class Home extends CI_Controller{
     function hapus($id_pasien){
         $where = array('id_pasien' => $id_pasien);
         $this->m_login->hapus_data($where,'konsultasi');
-        $this->m_login->hapus_data($where,'riwayat_pasien');
         $this->m_login->hapus_data($where,'pasien');
         $this->session->set_flashdata('flash','Dihapus');
         redirect('home');
@@ -91,7 +87,6 @@ class Home extends CI_Controller{
     public function detail($id_pasien){
         $data['pasien'] = $this->m_login->getPasienId($id_pasien);
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
-        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
 
         $this->load->view('templates/header');
         $this->load->view('home/detail', $data);
@@ -101,7 +96,6 @@ class Home extends CI_Controller{
     public function ubah($id_pasien,$visit){
         $data['pasien'] = $this->m_login->getPasienId($id_pasien);
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
-        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
         $data['konsultasi'] = $this->m_login->getVisit($id_pasien,$visit);
         $data['jk'] = ['L','P'];
         
@@ -130,6 +124,7 @@ class Home extends CI_Controller{
 
         $anamnesePasien = $this->input->post('anamnese');
         $nomenklaturPasien = $this->input->post('nomenklatur');
+        $diagnosaPasien = $this->input->post('diagnosa');
         $tindakanPasien = $this->input->post('tindakan');
         $resepPasien = $this->input->post('resep');
         $keteranganPasien = $this->input->post('keterangan');
@@ -137,15 +132,11 @@ class Home extends CI_Controller{
         $dataKonsultasi = array(
             'anamnese' => $anamnesePasien,
             'nomenklatur' => $nomenklaturPasien,
+            'diagnosa' => $diagnosaPasien,
             'tindakan' => $tindakanPasien,
             'resep' => $resepPasien,
             'keterangan' => $keteranganPasien
         );  
-        $diagnosaPasien = $this->input->post('diagnosa');
-
-        $dataDiagnosa = array(
-            'diagnosa' => $diagnosaPasien
-        );
         
         $where = array(
             'id_pasien' => $idPasien,
@@ -160,7 +151,6 @@ class Home extends CI_Controller{
 
         $this->m_login->ubah_data($where,$dataPasien,'pasien');
         $this->m_login->ubah_data($whereKonsultasi,$dataKonsultasi,'konsultasi');
-        $this->m_login->ubah_data($where,$dataDiagnosa,'riwayat_pasien');
         $this->session->set_flashdata('flash','Diubah');    
         redirect('home/detail/'.$idPasien);
     }
@@ -168,7 +158,6 @@ class Home extends CI_Controller{
     public function visit($id_pasien){
         $data['pasien'] = $this->m_login->getPasienId($id_pasien);
         $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
-        $data['riwayat_pasien'] = $this->m_login->getRiwayat($id_pasien);
 
         $this->load->view('templates/header');
         $this->load->view('home/visit', $data);
@@ -179,6 +168,7 @@ class Home extends CI_Controller{
         $tgl_konsultasi = date('Y-m-d H:i:s');
         $anamnesePasien = $this->input->post('anamnese');
         $nomenklaturPasien = $this->input->post('nomenklatur');
+        $diagnosaPasien = $this->input->post('diagnosa');
         $tindakanPasien = $this->input->post('tindakan');
         $resepPasien = $this->input->post('resep');
         $keteranganPasien = $this->input->post('keterangan');
@@ -195,6 +185,7 @@ class Home extends CI_Controller{
             'tanggal' => $tgl_konsultasi,
             'anamnese' => $anamnesePasien,
             'nomenklatur' => $nomenklaturPasien,
+            'diagnosa' => $diagnosaPasien,
             'tindakan' => $tindakanPasien,
             'resep' => $resepPasien,
             'keterangan' => $keteranganPasien,
@@ -202,13 +193,7 @@ class Home extends CI_Controller{
             'id_pasien' => $id_pasien,
         );
 
-        $dataDiagnosa = array(
-            'diagnosa' => $diagnosaPasien,
-            'id_pasien' => $id_pasien,
-        );
-
         $this->m_login->input_data($dataKonsultasi,'konsultasi');
-        $this->m_login->input_data($dataDiagnosa, 'riwayat_pasien');
         redirect('home');
     }
 

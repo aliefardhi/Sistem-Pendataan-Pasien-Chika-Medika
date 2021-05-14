@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2021 at 12:37 PM
+-- Generation Time: May 14, 2021 at 06:54 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -31,6 +31,7 @@ CREATE TABLE `konsultasi` (
   `tanggal` timestamp NULL DEFAULT NULL,
   `anamnese` varchar(100) DEFAULT NULL,
   `nomenklatur` varchar(10) DEFAULT NULL,
+  `diagnosa` varchar(100) DEFAULT NULL,
   `tindakan` varchar(100) DEFAULT NULL,
   `resep` varchar(100) DEFAULT NULL,
   `keterangan` varchar(100) DEFAULT NULL,
@@ -42,32 +43,36 @@ CREATE TABLE `konsultasi` (
 -- Dumping data for table `konsultasi`
 --
 
-INSERT INTO `konsultasi` (`tanggal`, `anamnese`, `nomenklatur`, `tindakan`, `resep`, `keterangan`, `visit`, `id_pasien`) VALUES
-('2021-05-08 17:00:00', 'sakit gigi', '6', 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 1, 1),
-('2021-03-08 17:00:00', 'sakit hati', '1', 'cari pacar', 'jomblo aja', 'gusi berdarah', 1, 2),
-('2021-03-08 17:00:00', 'Gigi berlubang', '4', 'tambal gigi', 'Tambal gigi', 'gigi bengkak', 1, 3),
-('2021-03-14 17:00:00', 'Gusi bengkak', '5', 'kompres', 'antibiotik', 'gusi bengkak', 1, 4),
-('2021-03-07 17:00:00', 'Ga punya gigi', '8', 'pasang gigi palsu', 'Pasang gigi palsu', 'gigi lobang', 1, 5),
-('2021-03-30 17:00:00', 'Gusi berdarah', '1', 'antibiotik', 'Obat', 'ga punya gigi', 1, 6),
-('2021-03-06 17:00:00', 'Gigi ompong', '4', 'pasang gigi palsu', 'Pasang gigi palsu', 'gatau lg bingung', 1, 7),
-('2021-03-14 17:00:00', 'sakit gigi', '3', 'minum obat', 'kompress', 'bingung', 1, 8),
-('2021-03-29 17:00:00', 'Gusi bengkak', '1', 'kompres', 'Obat', 'data dummy doang kok', 1, 9),
-('2021-03-13 17:00:00', 'Bau mulut', '6', 'obat', 'Makan permen', 'gapapa kan ?', 1, 10),
-('2021-02-28 17:00:00', 'Gusi bengkak', '7', 'kompres', 'Obat kompres', 'asal asalan gini ?', 1, 11),
-('2021-04-09 17:00:00', 'Gigi berlubang', '3', 'tambal gigi', 'tambal gigi', 'tambal gigi', 1, 12),
-('2021-04-28 17:00:00', 'gatau bang', '1', 'pasang gigi palsu', 'tidak ada', 'tidak ada', 1, 13),
-('2021-05-08 17:00:00', 'sakit gigi', '6', 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 2, 1),
-('2021-05-08 17:00:00', 'sakit gigi', '6', 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 3, 1),
-('2021-05-08 17:00:00', 'sakit hati', '1', 'cari pacar', 'jomblo aja', 'gusi berdarah', 2, 2),
-('2021-05-08 17:00:00', 'ytjkyukylwere', 'rtjtrjh', 'fwegerghre', 'qdfqwfew', 'ewrger', 1, 15),
-('2021-05-08 17:00:00', '4hrhrfthn', '4', 'ergre', 'fwe', '3', 1, 16),
-('2021-05-08 17:00:00', 'Gusi berdarah', '2', 'antibiotik', 'Obat', 'ga punya gigi', 2, 6),
-('2021-05-08 17:00:00', 'Gusi bengkak', '1', 'kompres', 'Obat', 'data dummy doang kok', 2, 9),
-('2021-05-07 17:00:00', 'cobain', '6', 'obat', 'Makan permen', 'gapapa kan ?', 2, 10),
-('2021-05-09 05:21:42', 'sakit gigi', '2134', 'wgwerghtrh', 'wqefgergh', 'qfwgw', 1, 18),
-('2021-05-09 10:30:24', 'evrdhn', '232', 'reger', 'ewgfwe', 'weg', 1, 19),
-(NULL, 'Sariawan', '2', 'obat', 'Makan permen', 'gapapa kan ?', 3, 10),
-('2021-05-09 10:33:29', 'sariawan', '2', 'kompres', 'Obat', 'data dummy doang kok', 3, 9);
+INSERT INTO `konsultasi` (`tanggal`, `anamnese`, `nomenklatur`, `diagnosa`, `tindakan`, `resep`, `keterangan`, `visit`, `id_pasien`) VALUES
+('2021-05-08 17:00:00', 'sakit gigi', '6', NULL, 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 1, 1),
+('2021-03-08 17:00:00', 'sakit hati', '1', NULL, 'cari pacar', 'jomblo aja', 'gusi berdarah', 1, 2),
+('2021-03-08 17:00:00', 'Gigi berlubang', '4', NULL, 'tambal gigi', 'Tambal gigi', 'gigi bengkak', 1, 3),
+('2021-03-14 17:00:00', 'Gusi bengkak', '5', NULL, 'kompres', 'antibiotik', 'gusi bengkak', 1, 4),
+('2021-03-07 17:00:00', 'Ga punya gigi', '8', NULL, 'pasang gigi palsu', 'Pasang gigi palsu', 'gigi lobang', 1, 5),
+('2021-03-30 17:00:00', 'Gusi berdarah', '1', NULL, 'antibiotik', 'Obat', 'ga punya gigi', 1, 6),
+('2021-03-06 17:00:00', 'Gigi ompong', '4', NULL, 'pasang gigi palsu', 'Pasang gigi palsu', 'gatau lg bingung', 1, 7),
+('2021-03-14 17:00:00', 'sakit gigi', '3', NULL, 'minum obat', 'kompress', 'bingung', 1, 8),
+('2021-03-29 17:00:00', 'Gusi bengkak', '1', NULL, 'kompres', 'Obat', 'data dummy doang kok', 1, 9),
+('2021-03-13 17:00:00', 'Bau mulut', '6', NULL, 'obat', 'Makan permen', 'gapapa kan ?', 1, 10),
+('2021-02-28 17:00:00', 'Gusi bengkak', '7', NULL, 'kompres', 'Obat kompres', 'asal asalan gini ?', 1, 11),
+('2021-04-09 17:00:00', 'Gigi berlubang', '3', NULL, 'tambal gigi', 'tambal gigi', 'tambal gigi', 1, 12),
+('2021-04-28 17:00:00', 'gatau bang', '1', NULL, 'pasang gigi palsu', 'tidak ada', 'tidak ada', 1, 13),
+('2021-05-08 17:00:00', 'sakit gigi', '6', NULL, 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 2, 1),
+('2021-05-08 17:00:00', 'sakit gigi', '6', NULL, 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 3, 1),
+('2021-05-08 17:00:00', 'sakit hati', '1', NULL, 'cari pacar', 'jomblo aja', 'gusi berdarah', 2, 2),
+('2021-05-08 17:00:00', 'ytjkyukylwere', 'rtjtrjh', NULL, 'fwegerghre', 'qdfqwfew', 'ewrger', 1, 15),
+('2021-05-08 17:00:00', '4hrhrfthn', '4', NULL, 'ergre', 'fwe', '3', 1, 16),
+('2021-05-08 17:00:00', 'Gusi berdarah', '2', NULL, 'antibiotik', 'Obat', 'ga punya gigi', 2, 6),
+('2021-05-08 17:00:00', 'Gusi bengkak', '1', NULL, 'kompres', 'Obat', 'data dummy doang kok', 2, 9),
+('2021-05-07 17:00:00', 'cobain', '6', NULL, 'obat', 'Makan permen', 'gapapa kan ?', 2, 10),
+('2021-05-09 05:21:42', 'sakit gigi', '2134', NULL, 'wgwerghtrh', 'wqefgergh', 'qfwgw', 1, 18),
+('2021-05-09 10:30:24', 'evrdhn', '232', NULL, 'reger', 'ewgfwe', 'weg', 1, 19),
+(NULL, 'Sariawan', '2', NULL, 'obat', 'Makan permen', 'gapapa kan ?', 3, 10),
+('2021-05-09 10:33:29', 'sariawan', '2', NULL, 'kompres', 'Obat', 'data dummy doang kok', 3, 9),
+('2021-05-13 19:29:20', 'gigi copot', '4', 'karang gigi', 'pasang gigi palsu', 'anti biotik', 'tidak ada', 1, 20),
+('2021-05-13 19:32:58', 'gusi nyeri', '123', 'gusi bengkak', 'membersihkan gigi', 'antibiotik', 'tidak ada', 2, 20),
+('2021-05-14 16:48:12', 'susah mati', '23', 'kepo ', 'gatau', 'gatau', 'kjaiofgwe', 1, 21),
+('2021-05-14 16:51:10', 'ga punya gigi', '0', 'ompong', 'pasang gigi palsu', 'gaada', 'gaada', 2, 21);
 
 -- --------------------------------------------------------
 
@@ -106,50 +111,9 @@ INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tgl_lahir`, `jk`, `alamat`, `
 (16, 'Iskandar', '2021-04-26', 'L', 'rthjtrrtjh', '34647568'),
 (17, 'Citra Amelia', '2012-06-09', 'L', 'iwhuifweghjif', '8934789756346'),
 (18, 'Susanto', '2014-02-09', 'L', 'lpejgioerjh', '47457564'),
-(19, 'Susi Susanti', '2017-07-09', 'P', 'qferghe', '475685');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `riwayat_pasien`
---
-
-CREATE TABLE `riwayat_pasien` (
-  `diagnosa` varchar(100) DEFAULT NULL,
-  `id_pasien` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `riwayat_pasien`
---
-
-INSERT INTO `riwayat_pasien` (`diagnosa`, `id_pasien`) VALUES
-('Gigi berlubang', 1),
-('Gigi copot', 2),
-('Sakit gigi', 3),
-('Sakit gusi', 4),
-('Gigi lobang', 5),
-('Gigi tambal', 6),
-('Gigi palsu', 7),
-('Ga punya gigi', 8),
-('Gusi bengkak', 9),
-('Gapnya gigi', 10),
-('Gusi bengkak', 11),
-('gigi berlubang', 12),
-('ga ada gigi', 13),
-('Gigi berlubang', 1),
-('Gigi copot', 2),
-('qwfgqwgerhg', 15),
-('qfqwefg', 16),
-('regherh', 17),
-('Gigi tambal', 6),
-('Gigi tambal', 6),
-('Gusi bengkak', 9),
-('Gapnya gigi', 10),
-('erhrtjhrty', 18),
-('gweg', 19),
-('Gapnya gigi', 10),
-('Gusi bengkak', 9);
+(19, 'Susi Susanti', '2017-07-09', 'P', 'qferghe', '475685'),
+(20, 'Susi junaedi', '2021-05-14', 'P', 'Jakarta', '082342532'),
+(21, 'reyna', '2021-01-14', 'P', 'Haven', '09728375823');
 
 -- --------------------------------------------------------
 
@@ -189,12 +153,6 @@ ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id_pasien`);
 
 --
--- Indexes for table `riwayat_pasien`
---
-ALTER TABLE `riwayat_pasien`
-  ADD KEY `id_pasien` (`id_pasien`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -208,7 +166,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
@@ -219,12 +177,6 @@ ALTER TABLE `pasien`
 --
 ALTER TABLE `konsultasi`
   ADD CONSTRAINT `konsultasi_ibfk_1` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`);
-
---
--- Constraints for table `riwayat_pasien`
---
-ALTER TABLE `riwayat_pasien`
-  ADD CONSTRAINT `riwayat_pasien_ibfk_1` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
