@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center" style="color: #833761 ;"><?= $pasien['nama_pasien']; ?></h3>
-                        <h5 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h5>
+                        <!-- <h5 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h5> -->
                         
                         <a href="<?= base_url(); ?>home/visit/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu btn-sm mb-3">
                           Tambah Visit
@@ -38,6 +38,12 @@
 
                         <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>/<?= $_GET['visit']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
                           Edit Data Pasien
+                        </a>
+                        <?php } ?>
+                        
+                        <?php if(!isset($_GET['visit'])){ ?>
+                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>/<?= $konsultasi['visit']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
+                            Edit Data Pasien
                         </a>
                         <?php } ?>
 
@@ -62,6 +68,8 @@
 
                                                                     if($visit == $konsultasi['visit']){
                                                                         $ket='selected';
+                                                                    }else{
+                                                                        $ket='';
                                                                     }
                                                                 }?> 
                                                                 <option <?= $ket ?> value="<?= $row->visit; ?>"> <?= $row->visit; ?> </option>

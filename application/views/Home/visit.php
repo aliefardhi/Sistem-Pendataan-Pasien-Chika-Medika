@@ -25,6 +25,12 @@
 
                         <form action="<?= base_url(); ?>home/tambah_visit/<?= $pasien['id_pasien']; ?>" method="POST">
                             <hr>
+
+                            <?php if(validation_errors()): ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= validation_errors(); ?>
+                                </div>
+                            <?php endif; ?>
                             
                             <div class="form-row">
                                 <div class="form-group col-md-6">

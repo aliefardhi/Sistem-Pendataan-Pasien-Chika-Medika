@@ -112,7 +112,7 @@
               </div>
               <div class="form-group col-md-3">
                   <label for="jk"><strong>Jenis Kelamin</strong></label>
-                  <select class="form-control" id="jk" name="jk" >
+                  <select class="form-control custom-select" id="jk" name="jk" >
                       <option>Pilih Jenis Kelamin</option>
                       <option>L</option>
                       <option>P</option>

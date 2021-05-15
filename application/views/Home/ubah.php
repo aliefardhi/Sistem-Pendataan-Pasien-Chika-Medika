@@ -23,7 +23,13 @@
                             <h2 class="card-title text-center" style="color: #833761 ;">Edit Data Pasien</h2>
                         </div>
 
-                        <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
+                        <?php if(validation_errors()): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= validation_errors(); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <form action="<?php echo base_url(). 'home/aksi_ubah/'; ?><?= $pasien['id_pasien']; ?>/<?= $konsultasi['visit']; ?>" method="POST">
                             <input type="hidden" class="form-control" id="visit" name="visit" value="<?= $konsultasi['visit']; ?>">
 
                             <div class="form-group">
@@ -46,7 +52,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="jk"><strong>Jenis Kelamin</strong></label>
-                                    <select class="form-control" id="jk" name="jk" >
+                                    <select class="form-control custom-select" id="jk" name="jk" >
                                         <?php foreach($jk as $gender): ?>
                                         <?php if( $gender == $pasien['jk']) : ?>
                                             <option value="<?= $gender; ?>" selected><?= $gender; ?></option>

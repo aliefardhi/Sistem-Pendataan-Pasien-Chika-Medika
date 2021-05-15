@@ -121,7 +121,12 @@ class Home extends CI_Controller{
         $this->load->view('templates/footer');
     }
 
-    public function aksi_ubah(){
+    public function aksi_ubah($id_pasien,$visit){
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+        $data['konsultasi'] = $this->m_login->getVisit($id_pasien,$visit);
+        $data['jk'] = ['L','P'];
+
         $idPasien = $this->input->post('id_pasien');
         $namaPasien = $this->input->post('nama');
         $tglLahir = $this->input->post('tgl_lahir');
@@ -166,10 +171,25 @@ class Home extends CI_Controller{
 
         $this->load->library('user_agent');
 
-        $this->m_login->ubah_data($where,$dataPasien,'pasien');
-        $this->m_login->ubah_data($whereKonsultasi,$dataKonsultasi,'konsultasi');
-        $this->session->set_flashdata('flash','Diubah');    
-        redirect('home/detail/'.$idPasien);
+        $this->form_validation->set_rules('nama','Nama','required');
+        $this->form_validation->set_rules('no_telp','No Telpon','required|numeric');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+        $this->form_validation->set_rules('anamnese','Anamnese','required');
+        $this->form_validation->set_rules('nomenklatur','Nomenklatur','required');
+        $this->form_validation->set_rules('diagnosa','Diagnosa','required');
+        $this->form_validation->set_rules('tindakan','Tindakan','required');
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('templates/header');
+            $this->load->view('home/ubah', $data);
+            $this->load->view('templates/footer');
+        }
+        else{
+            $this->m_login->ubah_data($where,$dataPasien,'pasien');
+            $this->m_login->ubah_data($whereKonsultasi,$dataKonsultasi,'konsultasi');
+            $this->session->set_flashdata('flash','Diubah');    
+            redirect('home/detail/'.$idPasien);
+        }
     }
     
     public function visit($id_pasien){
@@ -182,6 +202,9 @@ class Home extends CI_Controller{
     }
 
     public function tambah_visit($id_pasien){
+        $data['pasien'] = $this->m_login->getPasienId($id_pasien);
+        $data['konsultasi'] = $this->m_login->getKonsul($id_pasien);
+
         $tgl_konsultasi = date('Y-m-d H:i:s');
         $anamnesePasien = $this->input->post('anamnese');
         $nomenklaturPasien = $this->input->post('nomenklatur');
@@ -210,8 +233,21 @@ class Home extends CI_Controller{
             'id_pasien' => $id_pasien,
         );
 
-        $this->m_login->input_data($dataKonsultasi,'konsultasi');
-        redirect('home');
+        $this->form_validation->set_rules('anamnese','Anamnese','required');
+        $this->form_validation->set_rules('nomenklatur','Nomenklatur','required');
+        $this->form_validation->set_rules('diagnosa','Diagnosa','required');
+        $this->form_validation->set_rules('tindakan','Tindakan','required');
+
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('templates/header');
+            $this->load->view('home/visit', $data);
+            $this->load->view('templates/footer');
+        }
+
+        else{
+            $this->m_login->input_data($dataKonsultasi,'konsultasi');
+            redirect('home/detail/'.$id_pasien);
+        }
     }
 
 }
