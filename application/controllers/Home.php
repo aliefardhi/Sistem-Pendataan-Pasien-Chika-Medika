@@ -14,6 +14,7 @@ class Home extends CI_Controller{
         parent::__construct();
         $this->load->model('m_login');
         $this->load->helper('url');
+        $this->load->library('form_validation');
 
         if($this->session->userdata('status'!="login")){
             redirect(base_url("login"));
@@ -69,11 +70,27 @@ class Home extends CI_Controller{
             'visit' => 1,
             'id_pasien' => $countPasien,
         );
+        
+        $data['pasien'] = $this->m_login->tampil_data();
+        $this->form_validation->set_rules('nama','Nama','required');
+        $this->form_validation->set_rules('no_telp','No Telpon','required|numeric');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+        $this->form_validation->set_rules('anamnese','Anamnese','required');
+        $this->form_validation->set_rules('nomenklatur','Nomenklatur','required');
+        $this->form_validation->set_rules('diagnosa','Diagnosa','required');
+        $this->form_validation->set_rules('tindakan','Tindakan','required');
 
-        $this->m_login->input_data($dataPasien,'pasien');
-        $this->m_login->input_data($dataKonsultasi,'konsultasi');
-        $this->session->set_flashdata('flash','Ditambahkan');
-        redirect(base_url('home'));
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('templates/header');
+            $this->load->view('home/index', $data);
+            $this->load->view('templates/footer');
+        }else{
+            $this->m_login->input_data($dataPasien,'pasien');
+            $this->m_login->input_data($dataKonsultasi,'konsultasi');
+            $this->session->set_flashdata('flash','Ditambahkan');
+            redirect(base_url('home'));
+        }
+
     }
 
     function hapus($id_pasien){

@@ -24,6 +24,12 @@
     </div>
     <?php endif; ?>
 
+    <?php if(validation_errors()): ?>
+        <div class="alert alert-danger" role="alert">
+          <?= validation_errors(); ?>
+        </div>
+    <?php endif; ?>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-ungu btn-primary mb-3 float-right" data-toggle="modal" data-target="#tambah_modal">
       Tambah Data Pasien
@@ -82,83 +88,87 @@
       </div>
       <div class="modal-body">
         
+        <?php if(validation_errors()): ?>
+        <div class="alert alert-danger" role="alert">
+          <?= validation_errors(); ?>
+        </div>
+        <?php endif; ?>
+
         <form action="<?php echo base_url(). 'home/tambah_aksi'; ?>" method="POST">
-        
 
-        <div class="form-group">
-            <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
-            <input type="text" class="form-control" id="nama" name="nama">
-        </div>
+          <div class="form-group">
+              <label for="nama"> <strong>Nama Lengkap Pasien</strong></label>
+              <input type="text" class="form-control" id="nama" name="nama">
+          </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
-                <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="no_telp"> <strong>Nomor Telephone</strong></label>
-                <input type="text" class="form-control" id="no_telp" name="no_telp">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="jk"><strong>Jenis Kelamin</strong></label>
-                <select class="form-control" id="jk" name="jk" >
-                    <option>Pilih Jenis Kelamin</option>
-                    <option>L</option>
-                    <option>P</option>
-                </select>
-            </div>
-        </div>
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                  <label for="tgl_lahir"><strong>Tanggal Lahir</strong></label>
+                  <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="no_telp"> <strong>Nomor Telephone</strong></label>
+                  <input type="text" class="form-control" id="no_telp" name="no_telp">
+              </div>
+              <div class="form-group col-md-3">
+                  <label for="jk"><strong>Jenis Kelamin</strong></label>
+                  <select class="form-control" id="jk" name="jk" >
+                      <option>Pilih Jenis Kelamin</option>
+                      <option>L</option>
+                      <option>P</option>
+                  </select>
+              </div>
+          </div>
 
-        <div class="form-group">
-            <label for="alamat"><strong>Alamat</strong></label>
-            <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
-        </div>
-        
-        <hr>
-        
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="anamnese"><strong>Anamnese</strong></label>
-                <textarea class="form-control" id="anamnese" name="anamnese" rows="3"></textarea>
-            </div>
+          <div class="form-group">
+              <label for="alamat"><strong>Alamat</strong></label>
+              <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+          </div>
+          
+          <hr>
+          
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="anamnese"><strong>Anamnese</strong></label>
+                  <textarea class="form-control" id="anamnese" name="anamnese" rows="3"></textarea>
+              </div>
 
-            <div class="form-group col-md-6">
-                <label for="nomenklatur"><strong>Nomenklatur</strong></label>
-                <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"></textarea>
-            </div>
-        </div>
-        <hr>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="diagnosa"><strong>Diagnosa</strong></label>
-                <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"></textarea>
-            </div>
+              <div class="form-group col-md-6">
+                  <label for="nomenklatur"><strong>Nomenklatur</strong></label>
+                  <textarea class="form-control" id="nomenklatur" name="nomenklatur" rows="3"></textarea>
+              </div>
+          </div>
+          <hr>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="diagnosa"><strong>Diagnosa</strong></label>
+                  <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"></textarea>
+              </div>
 
-            <div class="form-group col-md-6">
-                <label for="tindakan"><strong>Tindakan</strong></label>
-                <textarea class="form-control" id="tindakan" name="tindakan" rows="3"></textarea>
-            </div>
-        </div>
+              <div class="form-group col-md-6">
+                  <label for="tindakan"><strong>Tindakan</strong></label>
+                  <textarea class="form-control" id="tindakan" name="tindakan" rows="3"></textarea>
+              </div>
+          </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="resep"><strong>Resep</strong></label>
-                <textarea class="form-control" id="resep" name="resep" rows="3"></textarea>
-            </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="resep"><strong>Resep</strong></label>
+                  <textarea class="form-control" id="resep" name="resep" rows="3"></textarea>
+              </div>
 
-            <div class="form-group col-md-6">
-                <label for="keterangan"><strong>Keterangan</strong></label>
-                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
-            </div>
-        </div>
+              <div class="form-group col-md-6">
+                  <label for="keterangan"><strong>Keterangan</strong></label>
+                  <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+              </div>
+          </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Simpan</button>
-
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
         </form>
-      </div>
     </div>
   </div>
 </div>
