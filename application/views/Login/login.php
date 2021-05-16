@@ -17,12 +17,20 @@
         <div class="col-lg-4">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
+            <?php if($this->session->flashdata('flash')): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Username atau Password <?= $this->session->flashdata('flash'); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            <?php endif; ?>
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
                         <div class="col-lg">
                             <div class="p-5">
-                                <form class="user" action="<?php echo base_url('landing');?>" method="post">
+                                <form class="user" action="<?php echo base_url('landing/aksi_login');?>" method="post">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                             id="username" name="username" placeholder="Username">

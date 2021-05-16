@@ -2,14 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller{
-    
-    public function index(){
-        $data['pasien'] = $this->m_login->tampil_data();
-        $this->load->view('templates/header');
-        $this->load->view('home/index', $data);
-        $this->load->view('templates/footer');
-    }
-
     function __construct(){
         parent::__construct();
         $this->load->model('m_login');
@@ -23,6 +15,14 @@ class Home extends CI_Controller{
         $this->load->helper("url");
         $this->load->model('m_login');
     }
+    
+    public function index(){
+        $data['pasien'] = $this->m_login->tampil_data();
+        $this->load->view('templates/header');
+        $this->load->view('home/index', $data);
+        $this->load->view('templates/footer');
+    }
+
 
     function tambah(){
         $this->load->view('home/index');

@@ -6,6 +6,7 @@ class Landing extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('m_login');
+        $this->load->library('form_validation');
     }
 
     public function index(){
@@ -31,7 +32,8 @@ class Landing extends CI_Controller{
             $this->session->set_userdata($data_session);
             redirect(base_url('home'));
         }else{
-            echo "Username dan password salah!";
+            $this->session->set_flashdata('flash','salah');
+            redirect(base_url('landing'));
         }
     }
 
