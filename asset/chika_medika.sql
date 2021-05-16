@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 06:54 PM
+-- Generation Time: May 16, 2021 at 08:42 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -44,35 +44,12 @@ CREATE TABLE `konsultasi` (
 --
 
 INSERT INTO `konsultasi` (`tanggal`, `anamnese`, `nomenklatur`, `diagnosa`, `tindakan`, `resep`, `keterangan`, `visit`, `id_pasien`) VALUES
-('2021-05-08 17:00:00', 'sakit gigi', '6', NULL, 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 1, 1),
-('2021-03-08 17:00:00', 'sakit hati', '1', NULL, 'cari pacar', 'jomblo aja', 'gusi berdarah', 1, 2),
-('2021-03-08 17:00:00', 'Gigi berlubang', '4', NULL, 'tambal gigi', 'Tambal gigi', 'gigi bengkak', 1, 3),
-('2021-03-14 17:00:00', 'Gusi bengkak', '5', NULL, 'kompres', 'antibiotik', 'gusi bengkak', 1, 4),
-('2021-03-07 17:00:00', 'Ga punya gigi', '8', NULL, 'pasang gigi palsu', 'Pasang gigi palsu', 'gigi lobang', 1, 5),
-('2021-03-30 17:00:00', 'Gusi berdarah', '1', NULL, 'antibiotik', 'Obat', 'ga punya gigi', 1, 6),
-('2021-03-06 17:00:00', 'Gigi ompong', '4', NULL, 'pasang gigi palsu', 'Pasang gigi palsu', 'gatau lg bingung', 1, 7),
-('2021-03-14 17:00:00', 'sakit gigi', '3', NULL, 'minum obat', 'kompress', 'bingung', 1, 8),
-('2021-03-29 17:00:00', 'Gusi bengkak', '1', NULL, 'kompres', 'Obat', 'data dummy doang kok', 1, 9),
-('2021-03-13 17:00:00', 'Bau mulut', '6', NULL, 'obat', 'Makan permen', 'gapapa kan ?', 1, 10),
-('2021-02-28 17:00:00', 'Gusi bengkak', '7', NULL, 'kompres', 'Obat kompres', 'asal asalan gini ?', 1, 11),
-('2021-04-09 17:00:00', 'Gigi berlubang', '3', NULL, 'tambal gigi', 'tambal gigi', 'tambal gigi', 1, 12),
-('2021-04-28 17:00:00', 'gatau bang', '1', NULL, 'pasang gigi palsu', 'tidak ada', 'tidak ada', 1, 13),
-('2021-05-08 17:00:00', 'sakit gigi', '6', NULL, 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 2, 1),
-('2021-05-08 17:00:00', 'sakit gigi', '6', NULL, 'kompres', 'Jangan makan permen mulu', 'nyeri bngt', 3, 1),
-('2021-05-08 17:00:00', 'sakit hati', '1', NULL, 'cari pacar', 'jomblo aja', 'gusi berdarah', 2, 2),
-('2021-05-08 17:00:00', 'ytjkyukylwere', 'rtjtrjh', NULL, 'fwegerghre', 'qdfqwfew', 'ewrger', 1, 15),
-('2021-05-08 17:00:00', '4hrhrfthn', '4', NULL, 'ergre', 'fwe', '3', 1, 16),
-('2021-05-08 17:00:00', 'Gusi berdarah', '2', NULL, 'antibiotik', 'Obat', 'ga punya gigi', 2, 6),
-('2021-05-08 17:00:00', 'Gusi bengkak', '1', NULL, 'kompres', 'Obat', 'data dummy doang kok', 2, 9),
-('2021-05-07 17:00:00', 'cobain', '6', NULL, 'obat', 'Makan permen', 'gapapa kan ?', 2, 10),
-('2021-05-09 05:21:42', 'sakit gigi', '2134', NULL, 'wgwerghtrh', 'wqefgergh', 'qfwgw', 1, 18),
-('2021-05-09 10:30:24', 'evrdhn', '232', NULL, 'reger', 'ewgfwe', 'weg', 1, 19),
-(NULL, 'Sariawan', '2', NULL, 'obat', 'Makan permen', 'gapapa kan ?', 3, 10),
-('2021-05-09 10:33:29', 'sariawan', '2', NULL, 'kompres', 'Obat', 'data dummy doang kok', 3, 9),
-('2021-05-13 19:29:20', 'gigi copot', '4', 'karang gigi', 'pasang gigi palsu', 'anti biotik', 'tidak ada', 1, 20),
-('2021-05-13 19:32:58', 'gusi nyeri', '123', 'gusi bengkak', 'membersihkan gigi', 'antibiotik', 'tidak ada', 2, 20),
-('2021-05-14 16:48:12', 'susah mati', '23', 'kepo ', 'gatau', 'gatau', 'kjaiofgwe', 1, 21),
-('2021-05-14 16:51:10', 'ga punya gigi', '0', 'ompong', 'pasang gigi palsu', 'gaada', 'gaada', 2, 21);
+('2021-05-16 06:33:20', 'Gusi bengkak', '5', 'Infeksi gusi', 'Pemberian antibiotik', 'Antibiotik', '', 1, 1),
+('2021-05-16 06:35:28', 'Ingin memasang gigi palsu', '2,3,5', 'tidak ada', 'Membuat gigi palsu dan memasangnya', 'tidak ada', '', 1, 2),
+('2021-05-16 06:37:05', 'gigi patah', '5', 'Gigi patah', 'mencabut gigi', 'Antibiotik', 'Kembali minggu depan untuk check up', 1, 3),
+('2021-05-16 06:39:07', 'Pembengkakan gusi bagian kanan', '1', 'bakteri yang menumpuk membuat pembengkakan pada gusi', 'membersihkan gigi dan memberikan antibiotik', 'antibiotik dan obat kumur', 'kembali 2 hari lagi untuk mengecek kembali', 1, 4),
+('2021-05-16 06:40:32', 'Ingin mencabut gigi', '5', 'Gigi yang membusuk', 'mencabut gigi', 'antibiotik', 'kembali 5 hari lagi untuk mengecek kondisi gigi', 1, 5),
+('2021-05-16 06:41:43', 'Bekas cabut gigi membengkak', '5', 'penumpukan sisa makanan pada gigi', 'membersihkan gigi ', 'antibiotik dan obat kumur', 'gunakan antibiotik dan obat kumur setelah makan', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -94,26 +71,11 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `tgl_lahir`, `jk`, `alamat`, `no_telp`) VALUES
-(1, 'Annisa Jufe Aryani', '2021-04-06', 'P', 'kemiling', '083876562312'),
-(2, 'Alief M Ardhi', '2021-04-07', 'L', 'sukarame', '021376542313'),
-(3, 'Lukas', '2021-04-19', 'L', 'gsm', '989237847235'),
-(4, 'Sandy', '2021-04-01', 'L', 'gsm', '89237653253'),
-(5, 'Alief', '2021-04-26', 'L', 'palembang', '872895723234'),
-(6, 'Ardhi', '2021-04-28', 'L', 'palembang\r\n', '2134236'),
-(7, 'Anastasia', '2021-04-27', 'P', 'jakarta', '87238674823'),
-(8, 'Puteri', '2021-04-26', 'P', 'jakarta', '8927834624'),
-(9, 'Dewi', '2021-04-27', 'P', 'bogor', '892374623'),
-(10, 'Arya', '2021-04-06', 'L', 'bekasi', '8781264723'),
-(11, 'Daulat', '2021-04-05', 'L', 'jawa', '0823748234'),
-(12, 'Satrio Kunto Birowo', '2021-04-05', 'L', 'Sukarame', '09289074892375'),
-(13, 'Jono', '2013-01-01', 'P', 'Jakarta', '8278657826'),
-(15, 'Junandar', '2011-06-09', 'L', 'regknejrherh', '902389572389'),
-(16, 'Iskandar', '2021-04-26', 'L', 'rthjtrrtjh', '34647568'),
-(17, 'Citra Amelia', '2012-06-09', 'L', 'iwhuifweghjif', '8934789756346'),
-(18, 'Susanto', '2014-02-09', 'L', 'lpejgioerjh', '47457564'),
-(19, 'Susi Susanti', '2017-07-09', 'P', 'qferghe', '475685'),
-(20, 'Susi junaedi', '2021-05-14', 'P', 'Jakarta', '082342532'),
-(21, 'reyna', '2021-01-14', 'P', 'Haven', '09728375823');
+(1, 'Susi Susanti', '2000-06-16', 'P', 'Sukarame', '082198562273'),
+(2, 'Joko Susanto', '1997-06-16', 'L', 'Way Hui', '087823415567'),
+(3, 'Doni Junaedi', '1999-09-01', 'L', 'Way Kandis', '083411273454'),
+(4, 'Lusi Iskandar', '1996-10-04', 'P', 'Kedaton', '02183457756'),
+(5, 'Dani', '2000-06-16', 'L', 'Way Halim', '087523231123');
 
 -- --------------------------------------------------------
 
