@@ -43,7 +43,6 @@
               <th>Tanggal Lahir</th>
               <th>Alamat</th>
               <th>No. Telepon</th>
-              
               <th>Aksi</th>
             </tr>
           </thead>
@@ -64,7 +63,7 @@
                   </a>
     
                   <input type="hidden" name="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" value="<?=$ps->id_pasien?>">
-                  <a href="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger btn-sm">
+                  <a href="<?php echo base_url('home/hapus/'.$ps->id_pasien); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data pasien?')" class="btn btn-danger btn-sm">
                     Delete
                   </a>
                   
@@ -107,7 +106,7 @@
                   <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
               </div>
               <div class="form-group col-md-6">
-                  <label for="no_telp"> <strong>Nomor Telephone</strong></label>
+                  <label for="no_telp"> <strong>Nomor Telepon</strong></label>
                   <input type="text" class="form-control" id="no_telp" name="no_telp">
               </div>
               <div class="form-group col-md-3">

@@ -47,7 +47,7 @@
                                     <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $pasien['tgl_lahir']; ?>">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="no_telp"> <strong>Nomor Telephone</strong></label>
+                                    <label for="no_telp"> <strong>Nomor Telepon</strong></label>
                                     <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $pasien['no_telp']; ?>">
                                 </div>
                                 <div class="form-group col-md-3">

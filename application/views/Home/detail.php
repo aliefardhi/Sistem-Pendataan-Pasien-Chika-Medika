@@ -110,7 +110,7 @@
 
                                     ?>
                                     <tr>
-                                        <th>Tanggal kunjungan</th>
+                                        <th>Tanggal Kunjungan</th>
                                         <td><?= $result['tanggal']; ?></td>
                                     </tr>
                                     <tr>
@@ -141,7 +141,7 @@
 
                                     <?php if(!isset($_GET['visit'])){ ?>
                                         <tr>
-                                        <th>Tanggal kunjungan</th>
+                                        <th>Tanggal Kunjungan</th>
                                         <td><?= $konsultasi['tanggal']; ?></td>
                                     </tr>
                                     <tr>
