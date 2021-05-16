@@ -23,10 +23,17 @@
                             <h2 class="card-title text-center" style="color: #833761 ;">Edit Data Pasien</h2>
                         </div>
 
-                        <form action="<?php echo base_url(). 'home/aksi_ubah'; ?>" method="POST">
+                        <?php if(validation_errors()): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= validation_errors(); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <form action="<?php echo base_url(). 'home/aksi_ubah/'; ?><?= $pasien['id_pasien']; ?>/<?= $konsultasi['visit']; ?>" method="POST">
+                            <input type="hidden" class="form-control" id="visit" name="visit" value="<?= $konsultasi['visit']; ?>">
+
                             <div class="form-group">
-                                <label for="id_pasien"> <strong>ID Pasien</strong></label>
-                                <input type="text" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
+                                <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $pasien['id_pasien']; ?>">
                             </div>
 
                             <div class="form-group">
@@ -40,12 +47,12 @@
                                     <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $pasien['tgl_lahir']; ?>">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="no_telp"> <strong>Nomor Telephone</strong></label>
+                                    <label for="no_telp"> <strong>Nomor Telepon</strong></label>
                                     <input type="text" class="form-control" id="no_telp" name="no_telp" value="<?= $pasien['no_telp']; ?>">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="jk"><strong>Jenis Kelamin</strong></label>
-                                    <select class="form-control" id="jk" name="jk" >
+                                    <select class="form-control custom-select" id="jk" name="jk" >
                                         <?php foreach($jk as $gender): ?>
                                         <?php if( $gender == $pasien['jk']) : ?>
                                             <option value="<?= $gender; ?>" selected><?= $gender; ?></option>
@@ -64,15 +71,6 @@
                             
                             <hr>
 
-                            <div class="form-group">
-                                <label for="id_konsultasi"> <strong>ID Konsultasi</strong></label>
-                                <input type="text" class="form-control" id="id_konsultasi" name="id_konsultasi" value="<?= $konsultasi['id_konsultasi']; ?>">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="tgl_konsultasi"> <strong>Tanggal Konsultasi</strong></label>
-                                <input type="date" class="form-control" id="tgl_konsultasi" name="tgl_konsultasi" value="<?= $konsultasi['tanggal']; ?>">
-                            </div>
                             
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -87,14 +85,10 @@
                             </div>
                             <hr>
                             
-                            <div class="form-group">
-                                <label for="id_diagnosa"> <strong>ID Diagnosa</strong></label>
-                                <input type="text" class="form-control" id="id_diagnosa" name="id_diagnosa" value="<?= $riwayat_pasien['id_diagnosa']; ?>">
-                            </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="diagnosa"><strong>Diagnosa</strong></label>
-                                    <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $riwayat_pasien['diagnosa']; ?></textarea>
+                                    <textarea class="form-control" id="diagnosa" name="diagnosa" rows="3"><?= $konsultasi['diagnosa']; ?></textarea>
                                 </div>
 
                                 <div class="form-group col-md-6">

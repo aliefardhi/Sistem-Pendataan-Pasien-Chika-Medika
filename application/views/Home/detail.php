@@ -28,26 +28,58 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center" style="color: #833761 ;"><?= $pasien['nama_pasien']; ?></h3>
-                        <h5 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h5>
+                        <!-- <h5 class="card-subtitle mb-2 text-muted">ID Pasien: <?= $pasien['id_pasien']; ?></h5> -->
                         
-                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
+                        <a href="<?= base_url(); ?>home/visit/<?= $pasien['id_pasien']; ?>" class="btn btn-primary btn-ungu btn-sm mb-3">
+                          Tambah Visit
+                        </a>
+
+                        <?php if(isset($_GET['visit'])){ ?>
+
+                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>/<?= $_GET['visit']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
                           Edit Data Pasien
                         </a>
+                        <?php } ?>
+                        
+                        <?php if(!isset($_GET['visit'])){ ?>
+                        <a href="<?= base_url(); ?>home/ubah/<?= $pasien['id_pasien']; ?>/<?= $konsultasi['visit']; ?>" class="btn btn-primary btn-ungu float-right btn-sm mb-3">
+                            Edit Data Pasien
+                        </a>
+                        <?php } ?>
 
                         <div class="table-responsive">
                             
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>Visit ke-</th>
+                                        <th>Tampilkan Visit ke-</th>
                                         <td>
-                                            <form action="" method="POST">
+                                            <form action="<?= $_SERVER["PHP_SELF"]; ?>" method="GET">
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1"></label>
-                                                    <select class="form-control-sm" id="exampleFormControlSelect1">
-                                                    <option>1</option>
-                                                    <option>2</option>
+                                                    <select name="visit" class="form-control-sm" id="exampleFormControlSelect1">
+                                                        <?php
+                                                            $query = $this->db->query("select visit from konsultasi where id_pasien=$pasien[id_pasien]");
+                                                            foreach($query->result() as $row){
+                                                                $ket='';
+
+                                                                if(isset($_GET['visit'])){
+                                                                    $visit=trim($_GET['visit']);
+
+                                                                    if($visit == $konsultasi['visit']){
+                                                                        $ket='selected';
+                                                                    }else{
+                                                                        $ket='';
+                                                                    }
+                                                                }?> 
+                                                                <option <?= $ket ?> value="<?= $row->visit; ?>"> <?= $row->visit; ?> </option>
+                                                            <?php
+                                                            }
+                                                        ?>
+
                                                     </select>
+
+                                                    <button type="submit" class="btn btn-primary btn-sm md-5">Pilih</button>
                                                 </div>
                                             </form>
                                             
@@ -69,8 +101,47 @@
                                         <th>No. Telepon</th>
                                         <td><?= $pasien['no_telp']; ?></td>
                                     </tr>
+                                    <?php 
+                                        if(isset($_GET['visit'])){
+                                            $visit = trim($_GET['visit']);
+                                            $sql = $this->db->query("SELECT tanggal, anamnese, nomenklatur, tindakan, resep, keterangan, diagnosa FROM konsultasi where konsultasi.id_pasien=$pasien[id_pasien] and visit='$visit'");
+                                            $rslt = $sql->result_array();
+                                            foreach($rslt as $result){
+
+                                    ?>
                                     <tr>
-                                        <th>Tanggal kunjungan</th>
+                                        <th>Tanggal Kunjungan</th>
+                                        <td><?= $result['tanggal']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Anamnese</th>
+                                        <td><?= $result['anamnese']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Diagnosa</th>
+                                        <td><?= $result['diagnosa']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nomenklatur</th>
+                                        <td><?= $result['nomenklatur']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tindakan</th>
+                                        <td><?= $result['tindakan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Resep</th>
+                                        <td><?= $result['resep']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Keterangan</th>
+                                        <td><?= $result['keterangan']; ?></td>
+                                    </tr>
+                                    <?php } } ?>
+
+                                    <?php if(!isset($_GET['visit'])){ ?>
+                                        <tr>
+                                        <th>Tanggal Kunjungan</th>
                                         <td><?= $konsultasi['tanggal']; ?></td>
                                     </tr>
                                     <tr>
@@ -79,7 +150,7 @@
                                     </tr>
                                     <tr>
                                         <th>Diagnosa</th>
-                                        <td><?= $riwayat_pasien['diagnosa']; ?></td>
+                                        <td><?= $konsultasi['diagnosa']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Nomenklatur</th>
@@ -97,8 +168,8 @@
                                         <th>Keterangan</th>
                                         <td><?= $konsultasi['keterangan']; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-
                             </table>
                         </div>
                         <a href="<?= base_url(); ?>home" class="btn btn-primary">Kembali</a>

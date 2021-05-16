@@ -7,7 +7,7 @@ class M_login extends CI_Model{
 	
 	// fungsi untuk tampil data
 	function tampil_data(){
-		$data = $this->db->query("select pasien.id_pasien,nama_pasien,tgl_lahir,alamat,no_telp,tanggal from pasien inner join riwayat_pasien on pasien.id_pasien = riwayat_pasien.id_pasien inner join konsultasi on pasien.id_pasien = konsultasi.id_pasien");
+		$data = $this->db->query("select pasien.id_pasien,nama_pasien,tgl_lahir,alamat,no_telp from pasien");
 		return $data->result();
 	}
 
@@ -35,5 +35,9 @@ class M_login extends CI_Model{
 	public function ubah_data($where,$data,$table){
 		$this->db->where($where);
 		$this->db->update($table,$data);
+	}
+
+	public function getVisit($id_pasien,$visit){
+		return $this->db->query("SELECT * FROM konsultasi WHERE id_pasien=$id_pasien AND visit=$visit")->row_array();
 	}
 }
